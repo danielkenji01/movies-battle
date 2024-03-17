@@ -3,6 +3,7 @@ package com.moviesbattle.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,20 +12,23 @@ import lombok.Setter;
 @Table(name = "match_rounds")
 @Getter
 @Setter
-public class MatchRounds {
+public class MatchRound {
 
     @Id
     @GeneratedValue
     private Integer id;
 
+    @ManyToOne
+    private Match match;
+
     private Integer roundNumber;
 
-    private Integer firstMovieId;
+    private String firstMovieImdb;
 
-    private Integer secondMovieId;
-
-    private boolean result;
+    private String secondMovieImdb;
 
     private RoundStatus status;
+
+    private RoundAnswer answer;
 
 }

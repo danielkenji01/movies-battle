@@ -17,4 +17,10 @@ public class Movie {
 
     private String title;
 
+    private double rate;
+
+    private int votes;
+
+    private double totalScore;
+
 }

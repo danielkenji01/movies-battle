@@ -21,21 +21,20 @@ public class ImdbScrapper {
     public void scrapeMovieTitles() throws IOException {
         final Document doc = Jsoup.connect("https://www.imdb.com/chart/top/").get();
 
-        final Elements select = doc.select("div.ipc-metadata-list-summary-item__tc");
-        final Elements movieElements = select.select("a");
+        final Elements movieElements = doc.select("div.ipc-metadata-list-summary-item__tc");
 
-        for (Element movieElement : movieElements) {
-            final String href = movieElement.attr("href");
+        for (final Element movieElement : movieElements) {
+            final Elements elementA = movieElement.select("a");
+            final String href = elementA.attr("href");
             final String imdbId = getImdbId(href);
-            final String title = movieElement.text();
 
-            movieService.create(imdbId, title);
+            movieService.create(imdbId);
         }
     }
 
-    private static String getImdbId(final String href) {
-        int startIndex = href.indexOf("title/") + "title/".length();
-        int endIndex = href.indexOf("/", startIndex);
+    private String getImdbId(final String href) {
+        final int startIndex = href.indexOf("title/") + "title/".length();
+        final int endIndex = href.indexOf("/", startIndex);
         return href.substring(startIndex, endIndex);
     }
 

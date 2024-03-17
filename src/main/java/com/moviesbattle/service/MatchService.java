@@ -3,12 +3,14 @@ package com.moviesbattle.service;
 import java.util.Optional;
 
 
+import com.moviesbattle.dto.RoundAnswerDto;
 import com.moviesbattle.dto.RoundDto;
 import com.moviesbattle.model.Match;
 import com.moviesbattle.model.MatchRound;
 import com.moviesbattle.model.MatchStatus;
 import com.moviesbattle.model.Movie;
 import com.moviesbattle.model.Player;
+import com.moviesbattle.model.RoundAnswer;
 import com.moviesbattle.model.RoundStatus;
 import com.moviesbattle.repository.MatchRepository;
 import com.moviesbattle.repository.MatchRoundRepository;
@@ -51,12 +53,11 @@ public class MatchService {
 
         final Player player = playerService.findByUsername(loggedUser); // TODO separate in new service
 
-        // Verificar se já existe um round em andament, se sim retorna-lo
         final Match match = matchRepository.findByPlayerAndStatus(player, MatchStatus.IN_PROGRESS).orElseThrow(
                 ChangeSetPersister.NotFoundException::new);
 
         final MatchRound matchRound =
-                matchRoundRepository.findByMatchAndStatus(match, RoundStatus.IN_PROGRESS).orElse(createRound(match));
+                matchRoundRepository.findByMatchAndStatus(match, RoundStatus.IN_PROGRESS).orElseGet(() -> createRound(match));
 
         final Movie firstMovie = movieService.findByImdb(matchRound.getFirstMovieImdb());
         final Movie secondMovie = movieService.findByImdb(matchRound.getSecondMovieImdb());
@@ -64,7 +65,64 @@ public class MatchService {
         return new RoundDto(firstMovie.getTitle(), secondMovie.getTitle());
     }
 
-    public MatchRound createRound(final Match match) {
+    public String answer(final RoundAnswerDto answerDto) throws Exception {
+
+        final String loggedUser = JwtUtil.getLoggedUser().orElseThrow(Exception::new);
+
+        final Player player = playerService.findByUsername(loggedUser); // TODO separate in new service
+
+        final Match match = matchRepository.findByPlayerAndStatus(player, MatchStatus.IN_PROGRESS).orElseThrow(
+                ChangeSetPersister.NotFoundException::new);
+
+        final MatchRound matchRound = matchRoundRepository.findByMatchAndStatus(match, RoundStatus.IN_PROGRESS)
+                .orElseThrow(ChangeSetPersister.NotFoundException::new);
+
+        final Movie firstMovie = movieService.findByImdb(matchRound.getFirstMovieImdb());
+        final Movie secondMovie = movieService.findByImdb(matchRound.getSecondMovieImdb());
+
+        final int answer = answerDto.getAnswer();
+        boolean correct = false;
+
+        if (answer == 1) {
+            correct = firstMovie.getTotalScore() > secondMovie.getTotalScore();
+        } else if (answer == 2) {
+            correct = secondMovie.getTotalScore() > firstMovie.getTotalScore();
+        }
+
+        final StringBuilder response = new StringBuilder();
+
+        if (correct) {
+            matchRound.setAnswer(RoundAnswer.CORRECT);
+            matchRound.setStatus(RoundStatus.FINISHED);
+
+            Integer score = match.getScore();
+            match.setScore(score + 1);
+
+            response.append("Your answer is correct!");
+        } else {
+            matchRound.setAnswer(RoundAnswer.WRONG);
+            matchRound.setStatus(RoundStatus.FINISHED);
+
+            final Integer credits = match.getCredits();
+            match.setCredits(credits - 1);
+
+            response.append("Your answer is wrong.");
+
+            if (match.getCredits() == 0) {
+                match.setStatus(MatchStatus.FINISHED);
+                response.append(" You have no more credits. Final score: ").append(match.getScore());
+            } else {
+                response.append(String.format(" You still have %s credit(s)", match.getCredits()));
+            }
+        }
+
+        matchRoundRepository.save(matchRound);
+        matchRepository.save(match);
+
+        return response.toString();
+    }
+
+    private MatchRound createRound(final Match match) {
         final MatchRound matchRound = new MatchRound();
 
         matchRound.setMatch(match);

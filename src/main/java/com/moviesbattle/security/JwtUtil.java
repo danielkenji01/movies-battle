@@ -2,10 +2,15 @@ package com.moviesbattle.security;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
+import java.util.Optional;
+
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 public class JwtUtil {
 
@@ -31,13 +36,16 @@ public class JwtUtil {
         return claims.getSubject();
     }
 
-    public static boolean validateToken(String token) {
-        try {
-            Jwts.parser().setSigningKey(SECRET_KEY).build().parseClaimsJws(token);
-            return true;
-        } catch (Exception e) {
-            return false;
+    public static Optional<String> getLoggedUser() {
+        String name = null;
+
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication != null && !(authentication instanceof AnonymousAuthenticationToken)) {
+            name = authentication.getName();
         }
+
+        return Optional.ofNullable(name);
     }
 
 }

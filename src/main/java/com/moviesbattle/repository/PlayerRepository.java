@@ -10,4 +10,6 @@ public interface PlayerRepository extends JpaRepository<Player, Integer> {
 
     boolean existsByUsernameAndPassword(final String username, final String password);
 
+    Optional<Player> findByUsername(final String username);
+
 }

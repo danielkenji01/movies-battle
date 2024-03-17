@@ -1,5 +1,8 @@
 package com.moviesbattle.service;
 
+import java.util.Random;
+
+
 import com.moviesbattle.dto.MovieDto;
 import com.moviesbattle.external.OmdbRestClient;
 import com.moviesbattle.model.Movie;
@@ -27,6 +30,16 @@ public class MovieService {
         movie.setTotalScore(movieDto.imdbRating() * movie.getVotes());
 
         movieRepository.save(movie);
+    }
+
+    public Movie findByImdb(final String imdb) {
+        return movieRepository.findByImdb(imdb).orElse(null); // TODO treat it better
+    }
+
+    public Movie getRandomMovie() {
+        final long count = movieRepository.count();
+        final int offset = new Random().nextInt((int) count);
+        return movieRepository.findById(offset).orElse(null); // TODO treat it better
     }
 
 }

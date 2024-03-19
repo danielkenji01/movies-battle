@@ -1,6 +1,8 @@
 package com.moviesbattle.service;
 
+import com.moviesbattle.dto.PlayerDto;
 import com.moviesbattle.exception.NotFoundException;
+import com.moviesbattle.exception.PlayerAlreadyExistsException;
 import com.moviesbattle.model.Player;
 import com.moviesbattle.repository.PlayerRepository;
 import com.moviesbattle.security.JwtUtil;
@@ -13,6 +15,19 @@ import org.springframework.stereotype.Service;
 public class PlayerService {
 
     private final PlayerRepository playerRepository;
+
+    public void createPlayer(final PlayerDto playerDto) {
+        final Player player = new Player();
+
+        if (playerRepository.existsByUsername(playerDto.getUsername())) {
+            throw new PlayerAlreadyExistsException();
+        }
+
+        player.setPassword(playerDto.getPassword());
+        player.setUsername(playerDto.getUsername());
+
+        playerRepository.save(player);
+    }
 
     public Player getLoggedUser() {
         final String loggedUser = JwtUtil.getLoggedUser();

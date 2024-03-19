@@ -23,6 +23,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers(antMatcher(HttpMethod.POST, "/api/players/login")).permitAll()
+                                .requestMatchers(antMatcher(HttpMethod.POST, "/api/players")).permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(new JwtTokenFilter(), UsernamePasswordAuthenticationFilter.class)
                 .build();

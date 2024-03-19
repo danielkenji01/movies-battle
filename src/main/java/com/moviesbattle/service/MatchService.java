@@ -24,11 +24,8 @@ public class MatchService {
 
     // Endpoint para ver placar de líderes
     // Endpoint para encerrar partida
-    // Endpoint para criar novo usuário
-    // Ajustar lógica de pontuação
     // Encriptar senha
     // Refatorar código ruim
-    // Tratamento de exceptions
     // Validação da resposta se valor é permitido
     // Adicionar testes unitários
     // Adicionar testes de integração

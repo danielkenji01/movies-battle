@@ -24,4 +24,9 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
         return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
     }
 
+    @ExceptionHandler(PlayerAlreadyExistsException.class)
+    protected ResponseEntity<Object> processPlayerAlreadyExistsException(final PlayerAlreadyExistsException exception) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body("Player already exists");
+    }
+
 }

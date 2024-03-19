@@ -3,11 +3,13 @@ package com.moviesbattle.controller;
 import java.util.Optional;
 
 
-import com.moviesbattle.dto.LoginDto;
+import com.moviesbattle.dto.PlayerDto;
 import com.moviesbattle.repository.PlayerRepository;
 import com.moviesbattle.security.AuthenticateService;
+import com.moviesbattle.service.PlayerService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,25 +17,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/players")
+@RequiredArgsConstructor
 public class PlayerController {
 
-    private final PlayerRepository playerRepository;
+    private final PlayerService playerService;
 
     private final AuthenticateService authenticateService;
 
-    public PlayerController(PlayerRepository playerRepository, AuthenticateService authenticateService) {
-        this.playerRepository = playerRepository;
-        this.authenticateService = authenticateService;
-    }
+    @PostMapping
+    public ResponseEntity<?> createPlayer(@RequestBody final PlayerDto playerDto) {
+        playerService.createPlayer(playerDto);
 
-    @GetMapping
-    public ResponseEntity<?> getPlayers() {
-        return ResponseEntity.ok(playerRepository.findAll());
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody final LoginDto loginDto) {
-        final Optional<String> token = authenticateService.authenticate(loginDto.getUsername(), loginDto.getPassword());
+    public ResponseEntity<?> login(@RequestBody final PlayerDto playerDto) {
+        final Optional<String> token = authenticateService.authenticate(playerDto.getUsername(), playerDto.getPassword());
 
         return token.<ResponseEntity<?>>map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(401).body("Invalid credentials"));

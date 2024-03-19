@@ -17,6 +17,7 @@ import com.moviesbattle.repository.MatchRepository;
 import com.moviesbattle.repository.MatchRoundRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -70,53 +71,78 @@ public class MatchService {
         return new RoundDto(firstMovie.getTitle(), secondMovie.getTitle());
     }
 
+    @Transactional
     public String answer(final RoundAnswerDto answerDto) {
         final Player player = playerService.getLoggedUser();
-
-        final Match match = matchRepository.findByPlayerAndStatus(player, MatchStatus.IN_PROGRESS).orElseThrow(
-                () -> new NotFoundException("Match not found"));
-
-        final MatchRound matchRound = matchRoundRepository.findByMatchAndStatus(match, RoundStatus.IN_PROGRESS)
-                .orElseThrow(() -> new NotFoundException("Round not found"));
+        final Match match = getInProgressMatch(player);
+        final MatchRound matchRound = getInProgressRound(match);
 
         final Movie firstMovie = movieService.findByImdb(matchRound.getFirstMovieImdb());
         final Movie secondMovie = movieService.findByImdb(matchRound.getSecondMovieImdb());
 
-        final int answer = answerDto.getAnswer();
-        boolean correct = false;
+        final int selectedOption = answerDto.getAnswer();
+        boolean correct = checkAnswer(selectedOption, firstMovie, secondMovie);
 
-        if (answer == 1) {
-            correct = firstMovie.getTotalScore() > secondMovie.getTotalScore();
-        } else if (answer == 2) {
-            correct = secondMovie.getTotalScore() > firstMovie.getTotalScore();
-        }
-
-        final StringBuilder response = new StringBuilder();
+        String response;
 
         if (correct) {
-            matchRound.correctAnswer();
-            match.scored();
-
-            response.append("Your answer is correct!");
+            response = handleCorrectAnswer(matchRound, match);
         } else {
-            matchRound.wrongAnswer();
-            match.missed();
-
-            response.append("Your answer is wrong.");
-
-            if (match.getCredits() == 0) {
-                match.finish();
-                response.append(" You have no more credits. Final score: ").append(match.getCorrectAnswers());
-            } else {
-                response.append(String.format(" You still have %s credit(s)", match.getCredits()));
-            }
+            response = handleWrongAnswer(matchRound, match);
         }
 
-        matchRoundRepository.save(matchRound);
-        matchRepository.save(match);
+        saveMatchAndRound(match, matchRound);
 
-        return response.toString();
+        return response;
     }
+
+    private Match getInProgressMatch(final Player player) {
+        return matchRepository.findByPlayerAndStatus(player, MatchStatus.IN_PROGRESS)
+                .orElseThrow(() -> new NotFoundException("Match not found"));
+    }
+
+    private MatchRound getInProgressRound(final Match match) {
+        return matchRoundRepository.findByMatchAndStatus(match, RoundStatus.IN_PROGRESS)
+                .orElseThrow(() -> new NotFoundException("Round not found"));
+    }
+
+    private boolean checkAnswer(final int selectedOption, final Movie firstMovie, final Movie secondMovie) {
+        return selectedOption == 1 ? firstMovie.getTotalScore() > secondMovie.getTotalScore() :
+                secondMovie.getTotalScore() > firstMovie.getTotalScore();
+    }
+
+    private String handleCorrectAnswer(final MatchRound matchRound, final Match match) {
+        matchRound.correctAnswer();
+        match.scored();
+        return "Your answer is correct!";
+    }
+
+    private String handleWrongAnswer(final MatchRound matchRound, final Match match) {
+        final StringBuilder builder = new StringBuilder();
+
+        matchRound.wrongAnswer();
+        match.missed();
+        builder.append("Your answer is wrong.");
+
+        if (match.getCredits() == 0) {
+            match.finish();
+            builder.append(" You have no more credits. Final score: ").append(match.getCorrectAnswers());
+        } else {
+            builder.append(String.format(" You still have %s credit(s)", match.getCredits()));
+        }
+
+        return builder.toString();
+    }
+
+    private void saveMatchAndRound(final Match match, final MatchRound matchRound) {
+        try {
+            matchRoundRepository.save(matchRound);
+            matchRepository.save(match);
+        } catch (final Exception e) {
+            throw new RuntimeException("Error saving match information");
+        }
+    }
+
 
     public List<Match> getLeaderboard() {
         return matchRepository.findAll().stream().sorted(Comparator.comparing(Match::getScore)).toList();

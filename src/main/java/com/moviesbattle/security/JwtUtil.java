@@ -2,9 +2,8 @@ package com.moviesbattle.security;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
-import java.util.Optional;
 
-
+import com.moviesbattle.exception.UnauthorizedException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -36,16 +35,14 @@ public class JwtUtil {
         return claims.getSubject();
     }
 
-    public static Optional<String> getLoggedUser() {
-        String name = null;
-
+    public static String getLoggedUser() {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         if (authentication != null && !(authentication instanceof AnonymousAuthenticationToken)) {
-            name = authentication.getName();
+            return authentication.getName();
         }
 
-        return Optional.ofNullable(name);
+        throw new UnauthorizedException();
     }
 
 }

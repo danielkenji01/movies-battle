@@ -3,9 +3,10 @@ package com.moviesbattle.service;
 import java.util.Comparator;
 import java.util.List;
 
-
 import com.moviesbattle.dto.RoundAnswerDto;
 import com.moviesbattle.dto.RoundDto;
+import com.moviesbattle.exception.MatchExistsException;
+import com.moviesbattle.exception.NotFoundException;
 import com.moviesbattle.model.Match;
 import com.moviesbattle.model.MatchRound;
 import com.moviesbattle.model.MatchStatus;
@@ -14,9 +15,7 @@ import com.moviesbattle.model.Player;
 import com.moviesbattle.model.RoundStatus;
 import com.moviesbattle.repository.MatchRepository;
 import com.moviesbattle.repository.MatchRoundRepository;
-import com.moviesbattle.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -44,10 +43,8 @@ public class MatchService {
 
     private final MovieService movieService;
 
-    public void startMatch() throws Exception {
-        final String loggedUser = JwtUtil.getLoggedUser().orElseThrow(Exception::new);
-
-        final Player player = playerService.findByUsername(loggedUser);
+    public void startMatch() {
+        final Player player = playerService.getLoggedUser();
 
         validateExistingMatch(player);
 
@@ -61,13 +58,11 @@ public class MatchService {
         matchRepository.save(match);
     }
 
-    public RoundDto nextRound() throws Exception {
-        final String loggedUser = JwtUtil.getLoggedUser().orElseThrow(Exception::new);
-
-        final Player player = playerService.findByUsername(loggedUser); // TODO separate in new service
+    public RoundDto nextRound() {
+        final Player player = playerService.getLoggedUser();
 
         final Match match = matchRepository.findByPlayerAndStatus(player, MatchStatus.IN_PROGRESS).orElseThrow(
-                ChangeSetPersister.NotFoundException::new);
+                () -> new NotFoundException("Match not found"));
 
         final MatchRound matchRound =
                 matchRoundRepository.findByMatchAndStatus(match, RoundStatus.IN_PROGRESS).orElseGet(() -> createRound(match));
@@ -78,17 +73,14 @@ public class MatchService {
         return new RoundDto(firstMovie.getTitle(), secondMovie.getTitle());
     }
 
-    public String answer(final RoundAnswerDto answerDto) throws Exception {
-
-        final String loggedUser = JwtUtil.getLoggedUser().orElseThrow(Exception::new);
-
-        final Player player = playerService.findByUsername(loggedUser); // TODO separate in new service
+    public String answer(final RoundAnswerDto answerDto) {
+        final Player player = playerService.getLoggedUser();
 
         final Match match = matchRepository.findByPlayerAndStatus(player, MatchStatus.IN_PROGRESS).orElseThrow(
-                ChangeSetPersister.NotFoundException::new);
+                () -> new NotFoundException("Match not found"));
 
         final MatchRound matchRound = matchRoundRepository.findByMatchAndStatus(match, RoundStatus.IN_PROGRESS)
-                .orElseThrow(ChangeSetPersister.NotFoundException::new);
+                .orElseThrow(() -> new NotFoundException("Round not found"));
 
         final Movie firstMovie = movieService.findByImdb(matchRound.getFirstMovieImdb());
         final Movie secondMovie = movieService.findByImdb(matchRound.getSecondMovieImdb());
@@ -161,7 +153,7 @@ public class MatchService {
         final boolean exists = matchRepository.existsByPlayerAndStatus(player, MatchStatus.IN_PROGRESS);
 
         if (exists) {
-            throw new UnsupportedOperationException();
+            throw new MatchExistsException("Match already exists");
         }
     }
 

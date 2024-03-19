@@ -19,7 +19,7 @@ public class MatchController {
     private final MatchService matchService;
 
     @PostMapping("/start")
-    public ResponseEntity<String> start() throws Exception {
+    public ResponseEntity<String> start() {
         matchService.startMatch();
 
         return ResponseEntity.ok("New match started successfully");

@@ -1,10 +1,11 @@
 package com.moviesbattle.service;
 
+import com.moviesbattle.exception.NotFoundException;
 import com.moviesbattle.model.Player;
 import com.moviesbattle.repository.PlayerRepository;
+import com.moviesbattle.security.JwtUtil;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,8 +14,14 @@ public class PlayerService {
 
     private final PlayerRepository playerRepository;
 
-    public Player findByUsername(final String username) throws ChangeSetPersister.NotFoundException {
-        return playerRepository.findByUsername(username).orElseThrow(ChangeSetPersister.NotFoundException::new);
+    public Player getLoggedUser() {
+        final String loggedUser = JwtUtil.getLoggedUser();
+
+        return findByUsername(loggedUser);
+    }
+
+    public Player findByUsername(final String username) {
+        return playerRepository.findByUsername(username).orElseThrow(() -> new NotFoundException("Player not found"));
     }
 
     @PostConstruct

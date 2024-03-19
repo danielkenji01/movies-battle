@@ -58,6 +58,7 @@ public class Match {
     }
 
     public void finish() {
+        this.credits = 0;
         this.status = MatchStatus.FINISHED;
     }
 

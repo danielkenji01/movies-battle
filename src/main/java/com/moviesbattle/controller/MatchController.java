@@ -25,13 +25,20 @@ public class MatchController {
         return ResponseEntity.ok("New match started successfully");
     }
 
+    @PostMapping("/end")
+    public ResponseEntity<String> end() {
+        final String response = matchService.endMatch();
+
+        return ResponseEntity.ok(response);
+    }
+
     @PostMapping("/next-round")
-    public ResponseEntity<RoundDto> nextRound() throws Exception {
+    public ResponseEntity<RoundDto> nextRound() {
         return ResponseEntity.ok(matchService.nextRound());
     }
 
     @PostMapping("/answer")
-    public ResponseEntity<String> answer(@RequestBody final RoundAnswerDto answerDto) throws Exception {
+    public ResponseEntity<String> answer(@RequestBody final RoundAnswerDto answerDto) {
         return ResponseEntity.ok(matchService.answer(answerDto));
     }
 

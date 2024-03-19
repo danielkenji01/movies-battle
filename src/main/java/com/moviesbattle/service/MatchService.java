@@ -23,10 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class MatchService {
 
-    // Endpoint para ver placar de líderes
-    // Endpoint para encerrar partida
     // Encriptar senha
-    // Refatorar código ruim
     // Validação da resposta se valor é permitido
     // Adicionar testes unitários
     // Adicionar testes de integração
@@ -41,6 +38,10 @@ public class MatchService {
 
     private final MovieService movieService;
 
+    public List<Match> getLeaderboard() {
+        return matchRepository.findAll().stream().sorted(Comparator.comparing(Match::getScore).reversed()).toList();
+    }
+
     public void startMatch() {
         final Player player = playerService.getLoggedUser();
 
@@ -54,6 +55,17 @@ public class MatchService {
         match.setCorrectAnswers(0);
 
         matchRepository.save(match);
+    }
+
+    public String endMatch() {
+        final Player player = playerService.getLoggedUser();
+
+        final Match match = matchRepository.findByPlayerAndStatus(player, MatchStatus.IN_PROGRESS).orElseThrow(
+                () -> new NotFoundException("Match not found"));
+
+        match.finish();
+
+        return String.format("Final score: %s", match.getScore());
     }
 
     public RoundDto nextRound() {
@@ -126,7 +138,7 @@ public class MatchService {
 
         if (match.getCredits() == 0) {
             match.finish();
-            builder.append(" You have no more credits. Final score: ").append(match.getCorrectAnswers());
+            builder.append(" You have no more credits. Final score: ").append(match.getScore());
         } else {
             builder.append(String.format(" You still have %s credit(s)", match.getCredits()));
         }
@@ -141,11 +153,6 @@ public class MatchService {
         } catch (final Exception e) {
             throw new RuntimeException("Error saving match information");
         }
-    }
-
-
-    public List<Match> getLeaderboard() {
-        return matchRepository.findAll().stream().sorted(Comparator.comparing(Match::getScore)).toList();
     }
 
     private MatchRound createRound(final Match match) {

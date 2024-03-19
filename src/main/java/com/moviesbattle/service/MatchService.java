@@ -1,6 +1,7 @@
 package com.moviesbattle.service;
 
-import java.util.Optional;
+import java.util.Comparator;
+import java.util.List;
 
 
 import com.moviesbattle.dto.RoundAnswerDto;
@@ -10,7 +11,6 @@ import com.moviesbattle.model.MatchRound;
 import com.moviesbattle.model.MatchStatus;
 import com.moviesbattle.model.Movie;
 import com.moviesbattle.model.Player;
-import com.moviesbattle.model.RoundAnswer;
 import com.moviesbattle.model.RoundStatus;
 import com.moviesbattle.repository.MatchRepository;
 import com.moviesbattle.repository.MatchRoundRepository;
@@ -22,6 +22,19 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class MatchService {
+
+    // Endpoint para ver placar de líderes
+    // Endpoint para encerrar partida
+    // Endpoint para criar novo usuário
+    // Ajustar lógica de pontuação
+    // Encriptar senha
+    // Refatorar código ruim
+    // Tratamento de exceptions
+    // Validação da resposta se valor é permitido
+    // Adicionar testes unitários
+    // Adicionar testes de integração
+    // Opcional: adicionar expiração para token
+
 
     private final MatchRepository matchRepository;
 
@@ -43,7 +56,7 @@ public class MatchService {
         match.setStatus(MatchStatus.IN_PROGRESS);
         match.setCredits(3);
         match.setPlayer(player);
-        match.setScore(0);
+        match.setCorrectAnswers(0);
 
         matchRepository.save(match);
     }
@@ -92,25 +105,19 @@ public class MatchService {
         final StringBuilder response = new StringBuilder();
 
         if (correct) {
-            matchRound.setAnswer(RoundAnswer.CORRECT);
-            matchRound.setStatus(RoundStatus.FINISHED);
-
-            Integer score = match.getScore();
-            match.setScore(score + 1);
+            matchRound.correctAnswer();
+            match.scored();
 
             response.append("Your answer is correct!");
         } else {
-            matchRound.setAnswer(RoundAnswer.WRONG);
-            matchRound.setStatus(RoundStatus.FINISHED);
-
-            final Integer credits = match.getCredits();
-            match.setCredits(credits - 1);
+            matchRound.wrongAnswer();
+            match.missed();
 
             response.append("Your answer is wrong.");
 
             if (match.getCredits() == 0) {
-                match.setStatus(MatchStatus.FINISHED);
-                response.append(" You have no more credits. Final score: ").append(match.getScore());
+                match.finish();
+                response.append(" You have no more credits. Final score: ").append(match.getCorrectAnswers());
             } else {
                 response.append(String.format(" You still have %s credit(s)", match.getCredits()));
             }
@@ -120,6 +127,10 @@ public class MatchService {
         matchRepository.save(match);
 
         return response.toString();
+    }
+
+    public List<Match> getLeaderboard() {
+        return matchRepository.findAll().stream().sorted(Comparator.comparing(Match::getScore)).toList();
     }
 
     private MatchRound createRound(final Match match) {
@@ -145,7 +156,6 @@ public class MatchService {
 
         return randomMovie;
     }
-
 
     private void validateExistingMatch(final Player player) {
         final boolean exists = matchRepository.existsByPlayerAndStatus(player, MatchStatus.IN_PROGRESS);

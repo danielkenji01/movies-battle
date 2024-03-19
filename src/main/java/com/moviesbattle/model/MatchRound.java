@@ -31,4 +31,14 @@ public class MatchRound {
 
     private RoundAnswer answer;
 
+    public void correctAnswer() {
+        this.answer = RoundAnswer.CORRECT;
+        this.status = RoundStatus.FINISHED;
+    }
+
+    public void wrongAnswer() {
+        this.answer = RoundAnswer.WRONG;
+        this.status = RoundStatus.FINISHED;
+    }
+
 }

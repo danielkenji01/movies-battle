@@ -42,4 +42,8 @@ public class MovieService {
         return movieRepository.findById(offset).orElse(null); // TODO treat it better
     }
 
+    public boolean existsMovie() {
+        return movieRepository.count() > 0;
+    }
+
 }

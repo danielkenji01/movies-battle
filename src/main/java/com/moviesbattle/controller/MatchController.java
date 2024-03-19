@@ -5,6 +5,7 @@ import com.moviesbattle.dto.RoundDto;
 import com.moviesbattle.service.MatchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +33,11 @@ public class MatchController {
     @PostMapping("/answer")
     public ResponseEntity<String> answer(@RequestBody final RoundAnswerDto answerDto) throws Exception {
         return ResponseEntity.ok(matchService.answer(answerDto));
+    }
+
+    @GetMapping("/leaderboard")
+    public ResponseEntity<?> leaderboard() {
+        return ResponseEntity.ok(matchService.getLeaderboard());
     }
 
 }

@@ -19,6 +19,10 @@ public class ImdbScrapper {
 
     @PostConstruct
     public void scrapeMovieTitles() throws IOException {
+        if (movieService.existsMovie()) {
+            return;
+        }
+
         final Document doc = Jsoup.connect("https://www.imdb.com/chart/top/").get();
 
         final Elements movieElements = doc.select("div.ipc-metadata-list-summary-item__tc");

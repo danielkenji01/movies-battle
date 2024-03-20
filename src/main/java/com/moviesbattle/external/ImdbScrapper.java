@@ -17,7 +17,6 @@ public class ImdbScrapper {
 
     private final MovieService movieService;
 
-    @PostConstruct
     public void scrapeMovieTitles() throws IOException {
         if (movieService.existsMovie()) {
             return;

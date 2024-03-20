@@ -17,6 +17,10 @@ public class PlayerService {
 
     private final PlayerRepository playerRepository;
 
+    public boolean existsPlayers() {
+        return playerRepository.count() > 0;
+    }
+
     public void createPlayer(final PlayerDto playerDto) {
         final Player player = new Player();
 
@@ -38,26 +42,6 @@ public class PlayerService {
 
     public Player findByUsername(final String username) {
         return playerRepository.findByUsername(username).orElseThrow(() -> new NotFoundException("Player not found"));
-    }
-
-    @PostConstruct
-    public void createPlayers() {
-        if (playerRepository.count() > 0) {
-            return;
-        }
-
-        final Player player = new Player();
-
-        player.setPassword(DigestUtils.sha256Hex("12345"));
-        player.setUsername("daniel");
-
-        playerRepository.save(player);
-
-        final Player player1 = new Player();
-        player1.setUsername("caio");
-        player1.setPassword(DigestUtils.sha256Hex("123"));
-
-        playerRepository.save(player1);
     }
 
 }

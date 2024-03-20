@@ -26,7 +26,6 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class MatchService {
 
-    // Encriptar senha
     // Validação da resposta se valor é permitido
     // Adicionar testes unitários
     // Adicionar testes de integração

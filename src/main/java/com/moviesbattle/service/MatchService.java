@@ -18,8 +18,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MatchService {
 
-    // Validação da resposta se valor é permitido
-    // Adicionar testes unitários
     // Adicionar testes de integração
     // Opcional: adicionar expiração para token
 

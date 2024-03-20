@@ -36,6 +36,11 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
         return ResponseEntity.status(HttpStatus.CONFLICT).body("Player already exists");
     }
 
+    @ExceptionHandler(AnswerNotValidException.class)
+    protected ResponseEntity<Object> processAnswerNotValidException(final AnswerNotValidException exception) {
+        return ResponseEntity.badRequest().body("Answer not valid");
+    }
+
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(final MethodArgumentNotValidException ex,
             final HttpHeaders headers, final HttpStatusCode status, final WebRequest request) {

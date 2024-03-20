@@ -2,6 +2,7 @@ package com.moviesbattle.service;
 
 import com.moviesbattle.dto.RoundAnswerDto;
 import com.moviesbattle.dto.RoundDto;
+import com.moviesbattle.exception.AnswerNotValidException;
 import com.moviesbattle.exception.NotFoundException;
 import com.moviesbattle.model.Match;
 import com.moviesbattle.model.MatchRound;
@@ -65,8 +66,11 @@ public class MatchRoundService {
     }
 
     private boolean checkAnswer(final int selectedOption, final Movie firstMovie, final Movie secondMovie) {
-        return selectedOption == 1 ? firstMovie.getTotalScore() > secondMovie.getTotalScore() :
-                secondMovie.getTotalScore() > firstMovie.getTotalScore();
+        return switch (selectedOption) {
+            case 1 -> firstMovie.getTotalScore() > secondMovie.getTotalScore();
+            case 2 -> secondMovie.getTotalScore() > firstMovie.getTotalScore();
+            default -> throw new AnswerNotValidException();
+        };
     }
 
     private String handleCorrectAnswer(final MatchRound matchRound, final Match match) {

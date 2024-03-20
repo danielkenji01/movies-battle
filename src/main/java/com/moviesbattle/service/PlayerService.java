@@ -6,7 +6,6 @@ import com.moviesbattle.exception.PlayerAlreadyExistsException;
 import com.moviesbattle.model.Player;
 import com.moviesbattle.repository.PlayerRepository;
 import com.moviesbattle.security.JwtUtil;
-import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Service;

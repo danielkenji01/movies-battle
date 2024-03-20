@@ -2,6 +2,7 @@ package com.moviesbattle.controller;
 
 import com.moviesbattle.dto.RoundAnswerDto;
 import com.moviesbattle.dto.RoundDto;
+import com.moviesbattle.service.MatchRoundService;
 import com.moviesbattle.service.MatchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class MatchController {
 
     private final MatchService matchService;
+
+    private final MatchRoundService matchRoundService;
 
     @PostMapping("/start")
     public ResponseEntity<String> start() {
@@ -34,12 +37,12 @@ public class MatchController {
 
     @PostMapping("/next-round")
     public ResponseEntity<RoundDto> nextRound() {
-        return ResponseEntity.ok(matchService.nextRound());
+        return ResponseEntity.ok(matchRoundService.nextRound());
     }
 
     @PostMapping("/answer")
     public ResponseEntity<String> answer(@RequestBody final RoundAnswerDto answerDto) {
-        return ResponseEntity.ok(matchService.answer(answerDto));
+        return ResponseEntity.ok(matchRoundService.answer(answerDto));
     }
 
     @GetMapping("/leaderboard")

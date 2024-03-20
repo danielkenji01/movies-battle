@@ -2,8 +2,8 @@ package com.moviesbattle.service;
 
 import java.util.Random;
 
-
 import com.moviesbattle.dto.MovieDto;
+import com.moviesbattle.exception.NotFoundException;
 import com.moviesbattle.external.OmdbRestClient;
 import com.moviesbattle.model.Movie;
 import com.moviesbattle.repository.MovieRepository;
@@ -33,13 +33,13 @@ public class MovieService {
     }
 
     public Movie findByImdb(final String imdb) {
-        return movieRepository.findByImdb(imdb).orElse(null); // TODO treat it better
+        return movieRepository.findByImdb(imdb).orElseThrow(() -> new NotFoundException("Movie not found"));
     }
 
     public Movie getRandomMovie() {
         final long count = movieRepository.count();
         final int offset = new Random().nextInt((int) count);
-        return movieRepository.findById(offset).orElse(null); // TODO treat it better
+        return movieRepository.findById(offset).orElse(null);
     }
 
     public boolean existsMovie() {

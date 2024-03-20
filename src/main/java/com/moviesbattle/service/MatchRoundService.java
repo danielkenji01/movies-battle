@@ -119,10 +119,10 @@ public class MatchRoundService {
     private Movie generateUnusedMovie(final Match match) {
         final Movie randomMovie = movieService.getRandomMovie();
 
-        final boolean movieBeingUsed =
+        final boolean shouldGenerateAnotherMovie = randomMovie == null ||
                 matchRoundRepository.isMovieBeingUsed(match, RoundStatus.FINISHED, randomMovie.getImdb());
 
-        if (movieBeingUsed) {
+        if (shouldGenerateAnotherMovie) {
             return generateUnusedMovie(match);
         }
 

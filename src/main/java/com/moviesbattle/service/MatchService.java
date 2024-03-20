@@ -3,8 +3,11 @@ package com.moviesbattle.service;
 import java.util.Comparator;
 import java.util.List;
 
+
+import com.moviesbattle.dto.MatchDto;
 import com.moviesbattle.dto.RoundAnswerDto;
 import com.moviesbattle.dto.RoundDto;
+import com.moviesbattle.dto.mapper.MatchMapper;
 import com.moviesbattle.exception.MatchExistsException;
 import com.moviesbattle.exception.NotFoundException;
 import com.moviesbattle.model.Match;
@@ -38,8 +41,11 @@ public class MatchService {
 
     private final MovieService movieService;
 
-    public List<Match> getLeaderboard() {
-        return matchRepository.findAll().stream().sorted(Comparator.comparing(Match::getScore).reversed()).toList();
+    private final MatchMapper matchMapper;
+
+    public List<MatchDto> getLeaderboard() {
+        return matchRepository.findAll().stream().sorted(Comparator.comparing(Match::getScore).reversed())
+                .map(matchMapper::map).toList();
     }
 
     public void startMatch() {

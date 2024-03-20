@@ -2,8 +2,6 @@ package com.moviesbattle.model;
 
 import java.util.List;
 
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -23,7 +21,6 @@ public class Match {
 
     @Id
     @GeneratedValue
-    @Column(name = "id")
     private Integer id;
 
     @ManyToOne

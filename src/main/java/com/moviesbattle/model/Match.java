@@ -2,6 +2,7 @@ package com.moviesbattle.model;
 
 import java.util.List;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

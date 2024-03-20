@@ -2,6 +2,7 @@ package com.moviesbattle.exception;
 
 import java.util.List;
 
+
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

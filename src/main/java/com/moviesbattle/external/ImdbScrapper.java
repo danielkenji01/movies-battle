@@ -2,8 +2,8 @@ package com.moviesbattle.external;
 
 import java.io.IOException;
 
+
 import com.moviesbattle.service.MovieService;
-import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

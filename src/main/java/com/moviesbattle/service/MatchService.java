@@ -3,6 +3,7 @@ package com.moviesbattle.service;
 import java.util.Comparator;
 import java.util.List;
 
+
 import com.moviesbattle.dto.MatchDto;
 import com.moviesbattle.dto.mapper.MatchMapper;
 import com.moviesbattle.exception.MatchExistsException;
@@ -17,9 +18,6 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class MatchService {
-
-    // Adicionar testes de integração
-    // Opcional: adicionar expiração para token
 
     private final MatchRepository matchRepository;
 

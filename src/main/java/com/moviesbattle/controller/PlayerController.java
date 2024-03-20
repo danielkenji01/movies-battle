@@ -4,7 +4,6 @@ import java.util.Optional;
 
 
 import com.moviesbattle.dto.PlayerDto;
-import com.moviesbattle.repository.PlayerRepository;
 import com.moviesbattle.security.AuthenticateService;
 import com.moviesbattle.service.PlayerService;
 import jakarta.validation.Valid;

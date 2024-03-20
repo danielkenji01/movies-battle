@@ -8,6 +8,7 @@ import com.moviesbattle.repository.PlayerRepository;
 import com.moviesbattle.security.JwtUtil;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,7 +24,7 @@ public class PlayerService {
             throw new PlayerAlreadyExistsException();
         }
 
-        player.setPassword(playerDto.getPassword());
+        player.setPassword(DigestUtils.sha256Hex(playerDto.getPassword()));
         player.setUsername(playerDto.getUsername());
 
         playerRepository.save(player);
@@ -47,14 +48,14 @@ public class PlayerService {
 
         final Player player = new Player();
 
-        player.setPassword("12345");
+        player.setPassword(DigestUtils.sha256Hex("12345"));
         player.setUsername("daniel");
 
         playerRepository.save(player);
 
         final Player player1 = new Player();
         player1.setUsername("caio");
-        player1.setPassword("123");
+        player1.setPassword(DigestUtils.sha256Hex("123"));
 
         playerRepository.save(player1);
     }

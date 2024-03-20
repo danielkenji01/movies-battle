@@ -7,6 +7,7 @@ import com.moviesbattle.dto.PlayerDto;
 import com.moviesbattle.repository.PlayerRepository;
 import com.moviesbattle.security.AuthenticateService;
 import com.moviesbattle.service.PlayerService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,14 +26,14 @@ public class PlayerController {
     private final AuthenticateService authenticateService;
 
     @PostMapping
-    public ResponseEntity<?> createPlayer(@RequestBody final PlayerDto playerDto) {
+    public ResponseEntity<?> createPlayer(@Valid @RequestBody final PlayerDto playerDto) {
         playerService.createPlayer(playerDto);
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody final PlayerDto playerDto) {
+    public ResponseEntity<?> login(@Valid @RequestBody final PlayerDto playerDto) {
         final Optional<String> token = authenticateService.authenticate(playerDto.getUsername(), playerDto.getPassword());
 
         return token.<ResponseEntity<?>>map(ResponseEntity::ok)

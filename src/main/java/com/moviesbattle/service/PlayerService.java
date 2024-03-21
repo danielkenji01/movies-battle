@@ -43,4 +43,8 @@ public class PlayerService {
         return playerRepository.findByUsername(username).orElseThrow(() -> new NotFoundException("Player not found"));
     }
 
+    public boolean existsByUsername(final String username, final String password) {
+        return playerRepository.existsByUsernameAndPassword(username, DigestUtils.sha256Hex(password));
+    }
+
 }

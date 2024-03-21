@@ -16,7 +16,7 @@ public class JwtUtil {
 
     private static final String SECRET_KEY = "04d0ff1d-0a47-4e02-a197-f18bd49ec245";
 
-    public static String generateToken(String username) {
+    public static String generateToken(final String username) {
         final Date now = new Date();
 
         return Jwts.builder()

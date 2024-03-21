@@ -3,27 +3,26 @@ package com.moviesbattle.security;
 import java.util.Optional;
 
 
-import com.moviesbattle.repository.PlayerRepository;
+import com.moviesbattle.service.PlayerService;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class AuthenticateService {
 
-    private final PlayerRepository playerRepository;
+    private final PlayerService playerService;
 
     public Optional<String> authenticate(final String username, final String password) {
-        if (isValidUser(username, password)) {
+        if (isValidPlayer(username, password)) {
             return Optional.of(JwtUtil.generateToken(username));
         } else {
             return Optional.empty();
         }
     }
 
-    private boolean isValidUser(final String username, final String password) {
-        return playerRepository.existsByUsernameAndPassword(username, DigestUtils.sha256Hex(password));
+    private boolean isValidPlayer(final String username, final String password) {
+        return playerService.existsByUsername(username, password); 
     }
 
 }

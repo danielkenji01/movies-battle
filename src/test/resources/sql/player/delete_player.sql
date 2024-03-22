@@ -1,0 +1,1 @@
+DELETE FROM player where id = 999;

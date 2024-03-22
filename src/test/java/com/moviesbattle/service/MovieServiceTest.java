@@ -12,6 +12,7 @@ import static org.mockito.Mockito.when;
 
 import com.moviesbattle.Mocks;
 import com.moviesbattle.dto.MovieDto;
+import com.moviesbattle.dto.mapper.MovieMapper;
 import com.moviesbattle.exception.NotFoundException;
 import com.moviesbattle.external.OmdbRestClient;
 import com.moviesbattle.model.Movie;
@@ -31,14 +32,19 @@ class MovieServiceTest {
     @Mock
     private OmdbRestClient omdbRestClient;
 
+    @Mock
+    private MovieMapper movieMapper;
+
     @InjectMocks
     private MovieService movieService;
 
     @Test
     void create_isSuccess() {
         final MovieDto movieDto = Mocks.movieDto();
+        final Movie movie = Mocks.movie();
 
         when(omdbRestClient.getByImdb(anyString())).thenReturn(movieDto);
+        when(movieMapper.map(any())).thenReturn(movie);
 
         movieService.create("tt12345");
 

@@ -1,6 +1,8 @@
 package com.moviesbattle.external;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 import com.moviesbattle.service.MovieService;
@@ -17,23 +19,29 @@ import org.springframework.stereotype.Component;
 @ConditionalOnProperty(value = "imdb.web.scrapping.enabled", havingValue = "true")
 public class ImdbScrapper {
 
+    private static final Logger LOGGER = Logger.getLogger(ImdbScrapper.class.getName());
+
     private final MovieService movieService;
 
-    public void scrapeMovieTitles() throws IOException {
+    public void scrapeMovieTitles() {
         if (movieService.existsMovie()) {
             return;
         }
 
-        final Document doc = Jsoup.connect("https://www.imdb.com/chart/top/").get();
+        try {
+            final Document doc = Jsoup.connect("https://www.imdb.com/chart/top/").get();
 
-        final Elements movieElements = doc.select("div.ipc-metadata-list-summary-item__tc");
+            final Elements movieElements = doc.select("div.ipc-metadata-list-summary-item__tc");
 
-        for (final Element movieElement : movieElements) {
-            final Elements elementA = movieElement.select("a");
-            final String href = elementA.attr("href");
-            final String imdbId = getImdbId(href);
+            for (final Element movieElement : movieElements) {
+                final Elements elementA = movieElement.select("a");
+                final String href = elementA.attr("href");
+                final String imdbId = getImdbId(href);
 
-            movieService.create(imdbId);
+                movieService.create(imdbId);
+            }
+        } catch (final Exception e) {
+            LOGGER.log(Level.WARNING, "Error while scrapping IMDB site.");
         }
     }
 

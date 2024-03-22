@@ -5,6 +5,7 @@ import java.util.Random;
 
 
 import com.moviesbattle.dto.MovieDto;
+import com.moviesbattle.dto.mapper.MovieMapper;
 import com.moviesbattle.exception.NotFoundException;
 import com.moviesbattle.external.OmdbRestClient;
 import com.moviesbattle.model.Movie;
@@ -20,16 +21,12 @@ public class MovieService {
 
     private final OmdbRestClient omdbRestClient;
 
-    public void create(final String imdb) {
-        final Movie movie = new Movie();
+    private final MovieMapper movieMapper;
 
+    public void create(final String imdb) {
         final MovieDto movieDto = omdbRestClient.getByImdb(imdb);
 
-        movie.setImdb(movieDto.imdbID());
-        movie.setTitle(movieDto.title());
-        movie.setRate(movieDto.imdbRating());
-        movie.setVotes(Integer.parseInt(movieDto.imdbVotes().replaceAll(",", "")));
-        movie.setTotalScore(movieDto.imdbRating() * movie.getVotes());
+        final Movie movie = movieMapper.map(movieDto);
 
         movieRepository.save(movie);
     }

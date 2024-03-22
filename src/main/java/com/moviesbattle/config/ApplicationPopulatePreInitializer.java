@@ -21,13 +21,7 @@ public class ApplicationPopulatePreInitializer {
 
     @PostConstruct
     public void populateDatabase() {
-        imdbScrapper.ifPresent(scrapper -> {
-            try {
-                scrapper.scrapeMovieTitles();
-            } catch (final IOException e) {
-                throw new RuntimeException(e); // TODO adjust
-            }
-        });
+        imdbScrapper.ifPresent(ImdbScrapper::scrapeMovieTitles);
         this.createPlayers();
     }
 

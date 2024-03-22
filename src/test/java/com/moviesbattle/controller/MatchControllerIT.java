@@ -46,6 +46,7 @@ class MatchControllerIT extends AbstractControllerIT {
         }
     }
 
+    @Sql(value = "classpath:sql/match/delete_all_matches.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     @Test
     void start_whenMatchDoesNotExists_isSuccess() {
         post("/match/start")
@@ -122,6 +123,46 @@ class MatchControllerIT extends AbstractControllerIT {
                 .isOk()
                 .expectBody()
                 .jsonPath("$").isEmpty();
+    }
+
+    @Test
+    void nextRound_whenMatchDoesNotExists_shouldReturnNotFound() {
+        post("/match/next-round")
+                .headers(setBearerAuth("daniel"))
+                .exchange()
+                .expectStatus()
+                .isNotFound()
+                .expectBody()
+                .jsonPath("$")
+                .isEqualTo("Match not found");
+    }
+
+    @Sql(value = "classpath:sql/match/create_match.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(value = {"classpath:sql/match/delete_all_rounds.sql", "classpath:sql/match/delete_match.sql"}, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Test
+    void nextRound_whenMatchExists_isSuccess() {
+        post("/match/next-round")
+                .headers(setBearerAuth("daniel"))
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBody()
+                .jsonPath("$").isNotEmpty();
+    }
+
+    @Sql(value = "classpath:sql/match/create_match_with_round.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(value = "classpath:sql/match/delete_match_with_round.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Test
+    void nextRound_whenMatchAndRoundExists_shouldReturnSame() {
+        post("/match/next-round")
+                .headers(setBearerAuth("daniel"))
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBody()
+                .jsonPath("$").isNotEmpty()
+                .jsonPath("$.firstMovie").isEqualTo("Stand by Me")
+                .jsonPath("$.secondMovie").isEqualTo("Pirates of the Caribbean: The Curse of the Black Pearl");
     }
 
 }

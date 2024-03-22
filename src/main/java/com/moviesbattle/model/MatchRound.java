@@ -1,6 +1,8 @@
 package com.moviesbattle.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
@@ -11,7 +13,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "match_rounds")
+@Table(name = "match_round")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -31,8 +33,10 @@ public class MatchRound {
 
     private String secondMovieImdb;
 
+    @Enumerated(EnumType.STRING)
     private RoundStatus status;
 
+    @Enumerated(EnumType.STRING)
     private RoundAnswer answer;
 
     public void correctAnswer() {

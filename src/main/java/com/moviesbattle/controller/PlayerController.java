@@ -25,17 +25,17 @@ public class PlayerController {
     private final AuthenticateService authenticateService;
 
     @PostMapping
-    public ResponseEntity<?> createPlayer(@Valid @RequestBody final PlayerDto playerDto) {
+    public ResponseEntity<Void> createPlayer(@Valid @RequestBody final PlayerDto playerDto) {
         playerService.createPlayer(playerDto);
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@Valid @RequestBody final PlayerDto playerDto) {
+    public ResponseEntity<String> login(@Valid @RequestBody final PlayerDto playerDto) {
         final Optional<String> token = authenticateService.authenticate(playerDto.getUsername(), playerDto.getPassword());
 
-        return token.<ResponseEntity<?>>map(ResponseEntity::ok)
+        return token.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(401).body("Invalid credentials"));
     }
 

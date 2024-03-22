@@ -1,10 +1,15 @@
 package com.moviesbattle.controller;
 
+import java.util.function.Consumer;
+
+
 import com.moviesbattle.MoviesBattleApplication;
+import com.moviesbattle.security.JwtUtil;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
@@ -27,6 +32,11 @@ public abstract class AbstractControllerIT {
 
     private final UriComponentsBuilder clientDomainBuilder = UriComponentsBuilder.newInstance()
             .scheme("http").host("localhost").path("/api/{uri}");
+
+
+    protected Consumer<HttpHeaders> setBearerAuth(final String username) {
+        return httpHeaders -> httpHeaders.setBearerAuth(JwtUtil.generateToken(username));
+    }
 
     protected final WebTestClient.RequestBodySpec post(final String url) {
         return request(HttpMethod.POST, url);

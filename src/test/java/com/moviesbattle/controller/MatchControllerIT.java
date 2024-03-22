@@ -70,8 +70,30 @@ class MatchControllerIT extends AbstractControllerIT {
                 .isEqualTo("Match already exists");
     }
 
-    private final Consumer<HttpHeaders> setBearerAuth(final String username) {
-        return httpHeaders -> httpHeaders.setBearerAuth(JwtUtil.generateToken(username));
+    @Test
+    void end_whenMatchDoesNotExists_shouldReturnNotFound() {
+        post("/match/end")
+                .headers(setBearerAuth("caio"))
+                .exchange()
+                .expectStatus()
+                .isNotFound()
+                .expectBody()
+                .jsonPath("$")
+                .isEqualTo("Match not found");
+    }
+
+    @Sql(value = "classpath:sql/match/create_match_to_finish.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(value = "classpath:sql/match/delete_match_to_finish.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Test
+    void end_whenMatchExists_shouldReturnFinalResponse() {
+        post("/match/end")
+                .headers(setBearerAuth("phillip"))
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBody()
+                .jsonPath("$")
+                .isEqualTo("Final score: 100.0");
     }
 
 }

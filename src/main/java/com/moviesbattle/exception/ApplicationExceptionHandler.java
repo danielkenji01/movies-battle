@@ -39,7 +39,7 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
 
     @ExceptionHandler(AnswerNotValidException.class)
     protected ResponseEntity<Object> processAnswerNotValidException(final AnswerNotValidException exception) {
-        return ResponseEntity.badRequest().body("Answer not valid");
+        return ResponseEntity.badRequest().body("Invalid answer. Choose between 1 or 2.");
     }
 
     @Override

@@ -10,6 +10,7 @@ import static org.hamcrest.Matchers.containsInRelativeOrder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.moviesbattle.dto.RoundAnswerDto;
 import com.moviesbattle.model.Movie;
 import com.moviesbattle.security.JwtUtil;
 import com.moviesbattle.service.MovieService;
@@ -163,6 +164,104 @@ class MatchControllerIT extends AbstractControllerIT {
                 .jsonPath("$").isNotEmpty()
                 .jsonPath("$.firstMovie").isEqualTo("Stand by Me")
                 .jsonPath("$.secondMovie").isEqualTo("Pirates of the Caribbean: The Curse of the Black Pearl");
+    }
+
+    @Test
+    void answer_whenAnswerIsInvalid_shouldReturnBadRequest() {
+        final RoundAnswerDto roundAnswerDto = new RoundAnswerDto(5);
+
+        post("/match/answer")
+                .headers(setBearerAuth("daniel"))
+                .bodyValue(roundAnswerDto)
+                .exchange()
+                .expectStatus()
+                .isBadRequest()
+                .expectBody()
+                .jsonPath("$")
+                .isEqualTo("Invalid answer. Choose between 1 or 2.");
+    }
+
+    @Test
+    void answer_whenMatchDoesNotExists_shouldReturnNotFound() {
+        final RoundAnswerDto roundAnswerDto = new RoundAnswerDto(1);
+
+        post("/match/answer")
+                .headers(setBearerAuth("daniel"))
+                .bodyValue(roundAnswerDto)
+                .exchange()
+                .expectStatus()
+                .isNotFound()
+                .expectBody()
+                .jsonPath("$")
+                .isEqualTo("Match not found");
+    }
+
+    @Sql(value = "classpath:sql/match/create_match.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(value = "classpath:sql/match/delete_match.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Test
+    void answer_whenRoundDoesNotExists_shouldReturnNotFound() {
+        final RoundAnswerDto roundAnswerDto = new RoundAnswerDto(1);
+
+        post("/match/answer")
+                .headers(setBearerAuth("daniel"))
+                .bodyValue(roundAnswerDto)
+                .exchange()
+                .expectStatus()
+                .isNotFound()
+                .expectBody()
+                .jsonPath("$")
+                .isEqualTo("Round not found");
+    }
+
+    @Sql(value = "classpath:sql/match/create_match_with_round.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(value = "classpath:sql/match/delete_match_with_round.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Test
+    void answer_whenCorrect_shouldReturnSuccessResponse() {
+        final RoundAnswerDto roundAnswerDto = new RoundAnswerDto(2);
+
+        post("/match/answer")
+                .headers(setBearerAuth("daniel"))
+                .bodyValue(roundAnswerDto)
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBody()
+                .jsonPath("$")
+                .isEqualTo("Your answer is correct!");
+    }
+
+    @Sql(value = "classpath:sql/match/create_match_with_round.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(value = "classpath:sql/match/delete_match_with_round.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Test
+    void answer_whenWrong_shouldReturnWrongResponse() {
+        final RoundAnswerDto roundAnswerDto = new RoundAnswerDto(1);
+
+        post("/match/answer")
+                .headers(setBearerAuth("daniel"))
+                .bodyValue(roundAnswerDto)
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBody()
+                .jsonPath("$")
+                .isEqualTo("Your answer is wrong. You still have 2 credit(s)");
+    }
+
+    @Sql(value = "classpath:sql/match/create_match_with_multiple_rounds.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(value = {"classpath:sql/match/delete_all_rounds.sql", "classpath:sql/match/delete_match.sql"}, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Test
+    void answer_whenWrongAndHaveNoMoreCredits_shouldReturnWrongResponse() {
+        final RoundAnswerDto roundAnswerDto = new RoundAnswerDto(1);
+
+        post("/match/answer")
+                .headers(setBearerAuth("daniel"))
+                .bodyValue(roundAnswerDto)
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBody()
+                .jsonPath("$")
+                .isEqualTo("Your answer is wrong. You have no more credits. Final score: 600.0");
     }
 
 }

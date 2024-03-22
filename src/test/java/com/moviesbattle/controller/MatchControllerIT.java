@@ -1,56 +1,50 @@
 package com.moviesbattle.controller;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
-import java.util.function.Consumer;
 
 
 import static org.hamcrest.Matchers.containsInRelativeOrder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.moviesbattle.JsonUtils;
 import com.moviesbattle.dto.RoundAnswerDto;
 import com.moviesbattle.model.Movie;
-import com.moviesbattle.security.JwtUtil;
 import com.moviesbattle.service.MovieService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.jdbc.Sql;
 
 class MatchControllerIT extends AbstractControllerIT {
 
+    private static final String MATCH_URL = "/match";
+
+    private static final String START_URL = MATCH_URL + "/start";
+
+    private static final String END_URL = MATCH_URL + "/end";
+
+    private static final String NEXT_ROUND_URL = MATCH_URL + "/next-round";
+
+    private static final String ANSWER_URL = MATCH_URL + "/answer";
+
     @Autowired
     private MovieService movieService;
 
     @BeforeEach
-    void setup() {
-        String jsonString;
-        try (FileReader reader = new FileReader(
-                "C:/Users/CTW02596/IdeaProjects/movies-battle/src/test/resources/movies.json")) {
-            int charCount;
-            StringBuilder content = new StringBuilder();
-            while ((charCount = reader.read()) != -1) {
-                content.append((char) charCount);
-            }
-            jsonString = content.toString();
-
-            final ObjectMapper objectMapper = new ObjectMapper();
-            final List<Movie> movies = objectMapper.readValue(jsonString, new TypeReference<List<Movie>>() {
-            });
-            movieService.createAll(movies);
-        } catch (final IOException exception) {
-
-        }
+    void setup() throws IOException {
+        final String jsonString = JsonUtils.getMoviesJson();
+        final ObjectMapper objectMapper = new ObjectMapper();
+        final List<Movie> movies = objectMapper.readValue(jsonString, new TypeReference<>() {});
+        movieService.createAll(movies);
     }
 
     @Sql(value = "classpath:sql/match/delete_all_matches.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     @Test
     void start_whenMatchDoesNotExists_isSuccess() {
-        post("/match/start")
+        post(START_URL)
                 .headers(setBearerAuth("daniel"))
                 .exchange()
                 .expectStatus()
@@ -64,7 +58,7 @@ class MatchControllerIT extends AbstractControllerIT {
     @Sql(value = "classpath:sql/match/delete_match.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     @Test
     void start_whenMatchAlreadyExists_shouldReturnConflict() {
-        post("/match/start")
+        post(START_URL)
                 .headers(setBearerAuth("daniel"))
                 .exchange()
                 .expectStatus()
@@ -76,7 +70,7 @@ class MatchControllerIT extends AbstractControllerIT {
 
     @Test
     void end_whenMatchDoesNotExists_shouldReturnNotFound() {
-        post("/match/end")
+        post(END_URL)
                 .headers(setBearerAuth("caio"))
                 .exchange()
                 .expectStatus()
@@ -90,7 +84,7 @@ class MatchControllerIT extends AbstractControllerIT {
     @Sql(value = "classpath:sql/match/delete_match_to_finish.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     @Test
     void end_whenMatchExists_shouldReturnFinalResponse() {
-        post("/match/end")
+        post(END_URL)
                 .headers(setBearerAuth("phillip"))
                 .exchange()
                 .expectStatus()
@@ -128,7 +122,7 @@ class MatchControllerIT extends AbstractControllerIT {
 
     @Test
     void nextRound_whenMatchDoesNotExists_shouldReturnNotFound() {
-        post("/match/next-round")
+        post(NEXT_ROUND_URL)
                 .headers(setBearerAuth("daniel"))
                 .exchange()
                 .expectStatus()
@@ -142,7 +136,7 @@ class MatchControllerIT extends AbstractControllerIT {
     @Sql(value = {"classpath:sql/match/delete_all_rounds.sql", "classpath:sql/match/delete_match.sql"}, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     @Test
     void nextRound_whenMatchExists_isSuccess() {
-        post("/match/next-round")
+        post(NEXT_ROUND_URL)
                 .headers(setBearerAuth("daniel"))
                 .exchange()
                 .expectStatus()
@@ -155,7 +149,7 @@ class MatchControllerIT extends AbstractControllerIT {
     @Sql(value = "classpath:sql/match/delete_match_with_round.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     @Test
     void nextRound_whenMatchAndRoundExists_shouldReturnSame() {
-        post("/match/next-round")
+        post(NEXT_ROUND_URL)
                 .headers(setBearerAuth("daniel"))
                 .exchange()
                 .expectStatus()
@@ -170,7 +164,7 @@ class MatchControllerIT extends AbstractControllerIT {
     void answer_whenAnswerIsInvalid_shouldReturnBadRequest() {
         final RoundAnswerDto roundAnswerDto = new RoundAnswerDto(5);
 
-        post("/match/answer")
+        post(ANSWER_URL)
                 .headers(setBearerAuth("daniel"))
                 .bodyValue(roundAnswerDto)
                 .exchange()
@@ -185,7 +179,7 @@ class MatchControllerIT extends AbstractControllerIT {
     void answer_whenMatchDoesNotExists_shouldReturnNotFound() {
         final RoundAnswerDto roundAnswerDto = new RoundAnswerDto(1);
 
-        post("/match/answer")
+        post(ANSWER_URL)
                 .headers(setBearerAuth("daniel"))
                 .bodyValue(roundAnswerDto)
                 .exchange()
@@ -202,7 +196,7 @@ class MatchControllerIT extends AbstractControllerIT {
     void answer_whenRoundDoesNotExists_shouldReturnNotFound() {
         final RoundAnswerDto roundAnswerDto = new RoundAnswerDto(1);
 
-        post("/match/answer")
+        post(ANSWER_URL)
                 .headers(setBearerAuth("daniel"))
                 .bodyValue(roundAnswerDto)
                 .exchange()
@@ -219,7 +213,7 @@ class MatchControllerIT extends AbstractControllerIT {
     void answer_whenCorrect_shouldReturnSuccessResponse() {
         final RoundAnswerDto roundAnswerDto = new RoundAnswerDto(2);
 
-        post("/match/answer")
+        post(ANSWER_URL)
                 .headers(setBearerAuth("daniel"))
                 .bodyValue(roundAnswerDto)
                 .exchange()
@@ -236,7 +230,7 @@ class MatchControllerIT extends AbstractControllerIT {
     void answer_whenWrong_shouldReturnWrongResponse() {
         final RoundAnswerDto roundAnswerDto = new RoundAnswerDto(1);
 
-        post("/match/answer")
+        post(ANSWER_URL)
                 .headers(setBearerAuth("daniel"))
                 .bodyValue(roundAnswerDto)
                 .exchange()
@@ -253,7 +247,7 @@ class MatchControllerIT extends AbstractControllerIT {
     void answer_whenWrongAndHaveNoMoreCredits_shouldReturnWrongResponse() {
         final RoundAnswerDto roundAnswerDto = new RoundAnswerDto(1);
 
-        post("/match/answer")
+        post(ANSWER_URL)
                 .headers(setBearerAuth("daniel"))
                 .bodyValue(roundAnswerDto)
                 .exchange()

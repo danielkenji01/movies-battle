@@ -10,11 +10,15 @@ import org.springframework.test.context.jdbc.Sql;
 
 class PlayerControllerIT extends AbstractControllerIT {
 
+    private static final String PLAYERS_URL = "/players";
+
+    private static final String LOGIN_URL = PLAYERS_URL + "/login";
+
     @Test
     void createPlayer_isCreated() {
         final PlayerDto playerDto = new PlayerDto("charles", "testingpassword");
 
-        post("/players")
+        post(PLAYERS_URL)
                 .bodyValue(playerDto)
                 .exchange()
                 .expectStatus()
@@ -25,7 +29,7 @@ class PlayerControllerIT extends AbstractControllerIT {
     void createPlayer_whenPlayerAlreadyExists_shouldReturnConflict() {
         final PlayerDto playerDto = new PlayerDto("daniel", "testingpassword");
 
-        post("/players")
+        post(PLAYERS_URL)
                 .bodyValue(playerDto)
                 .exchange()
                 .expectStatus()
@@ -39,7 +43,7 @@ class PlayerControllerIT extends AbstractControllerIT {
     void createPlayer_withoutUsername_shouldReturnBadRequest() {
         final PlayerDto playerDto = new PlayerDto("   ", "testingpassword");
 
-        post("/players")
+        post(PLAYERS_URL)
                 .bodyValue(playerDto)
                 .exchange()
                 .expectStatus()
@@ -53,7 +57,7 @@ class PlayerControllerIT extends AbstractControllerIT {
     void createPlayer_withoutPassword_shouldReturnBadRequest() {
         final PlayerDto playerDto = new PlayerDto("charles", null);
 
-        post("/players")
+        post(PLAYERS_URL)
                 .bodyValue(playerDto)
                 .exchange()
                 .expectStatus()
@@ -66,7 +70,7 @@ class PlayerControllerIT extends AbstractControllerIT {
     void createPlayer_withoutUsernameAndPassword_shouldReturnBadRequest() {
         final PlayerDto playerDto = new PlayerDto(null, " ");
 
-        post("/players")
+        post(PLAYERS_URL)
                 .bodyValue(playerDto)
                 .exchange()
                 .expectStatus()
@@ -81,7 +85,7 @@ class PlayerControllerIT extends AbstractControllerIT {
     void login_withValidCredentials_isSuccess() {
         final PlayerDto playerDto = new PlayerDto("phillip", "12345");
 
-        post("/players/login")
+        post(LOGIN_URL)
                 .bodyValue(playerDto)
                 .exchange()
                 .expectStatus()
@@ -95,7 +99,7 @@ class PlayerControllerIT extends AbstractControllerIT {
     void login_withInvalidCredentials_shouldReturnUnauthorized() {
         final PlayerDto playerDto = new PlayerDto("notanuser", "32480912");
 
-        post("/players/login")
+        post(LOGIN_URL)
                 .bodyValue(playerDto)
                 .exchange()
                 .expectStatus()
@@ -109,7 +113,7 @@ class PlayerControllerIT extends AbstractControllerIT {
     void login_withoutUsername_shouldReturnBadRequest() {
         final PlayerDto playerDto = new PlayerDto(" ", "32480912");
 
-        post("/players/login")
+        post(LOGIN_URL)
                 .bodyValue(playerDto)
                 .exchange()
                 .expectStatus()
@@ -123,7 +127,7 @@ class PlayerControllerIT extends AbstractControllerIT {
     void login_withoutPassword_shouldReturnBadRequest() {
         final PlayerDto playerDto = new PlayerDto("notanuser", null);
 
-        post("/players/login")
+        post(LOGIN_URL)
                 .bodyValue(playerDto)
                 .exchange()
                 .expectStatus()
@@ -137,7 +141,7 @@ class PlayerControllerIT extends AbstractControllerIT {
     void login_withoutUsernameAndPassword_shouldReturnBadRequest() {
         final PlayerDto playerDto = new PlayerDto(null, "    ");
 
-        post("/players/login")
+        post(LOGIN_URL)
                 .bodyValue(playerDto)
                 .exchange()
                 .expectStatus()

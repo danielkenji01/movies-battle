@@ -1,0 +1,41 @@
+package com.moviesbattle.controller;
+
+import com.moviesbattle.MoviesBattleApplication;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.reactive.server.WebTestClient;
+import org.springframework.web.util.UriComponentsBuilder;
+
+@SpringBootTest(classes = { MoviesBattleApplication.class }, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ExtendWith(SpringExtension.class)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
+@ActiveProfiles("TEST")
+public abstract class AbstractControllerIT {
+
+    @Autowired
+    private WebTestClient webTestClient;
+
+    @LocalServerPort
+    private int port;
+
+    private final UriComponentsBuilder clientDomainBuilder = UriComponentsBuilder.newInstance()
+            .scheme("http").host("localhost").path("/api/{uri}");
+
+    protected final WebTestClient.RequestBodySpec post(final String url) {
+        return request(HttpMethod.POST, url);
+    }
+
+    protected WebTestClient.RequestBodySpec request(final HttpMethod method, final String uri) {
+        return webTestClient.method(method)
+                .uri(clientDomainBuilder.port(port).buildAndExpand(uri).toUriString())
+                .accept(MediaType.APPLICATION_JSON);
+    }
+
+}

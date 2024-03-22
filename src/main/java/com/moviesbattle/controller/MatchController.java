@@ -1,9 +1,14 @@
 package com.moviesbattle.controller;
 
+import java.util.List;
+
+
+import com.moviesbattle.dto.MatchDto;
 import com.moviesbattle.dto.RoundAnswerDto;
 import com.moviesbattle.dto.RoundDto;
 import com.moviesbattle.service.MatchRoundService;
 import com.moviesbattle.service.MatchService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,12 +46,12 @@ public class MatchController {
     }
 
     @PostMapping("/answer")
-    public ResponseEntity<String> answer(@RequestBody final RoundAnswerDto answerDto) {
+    public ResponseEntity<String> answer(@Valid @RequestBody final RoundAnswerDto answerDto) {
         return ResponseEntity.ok(matchRoundService.answer(answerDto));
     }
 
     @GetMapping("/leaderboard")
-    public ResponseEntity<?> leaderboard() {
+    public ResponseEntity<List<MatchDto>> leaderboard() {
         return ResponseEntity.ok(matchService.getLeaderboard());
     }
 

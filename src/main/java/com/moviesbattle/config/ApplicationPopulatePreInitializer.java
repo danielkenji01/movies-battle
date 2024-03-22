@@ -1,6 +1,7 @@
 package com.moviesbattle.config;
 
 import java.io.IOException;
+import java.util.Optional;
 
 
 import com.moviesbattle.dto.PlayerDto;
@@ -14,13 +15,19 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class ApplicationPopulatePreInitializer {
 
-    private final ImdbScrapper imdbScrapper;
+    private final Optional<ImdbScrapper> imdbScrapper;
 
     private final PlayerService playerService;
 
     @PostConstruct
-    public void populateDatabase() throws IOException {
-        imdbScrapper.scrapeMovieTitles();
+    public void populateDatabase() {
+        imdbScrapper.ifPresent(scrapper -> {
+            try {
+                scrapper.scrapeMovieTitles();
+            } catch (final IOException e) {
+                throw new RuntimeException(e); // TODO adjust
+            }
+        });
         this.createPlayers();
     }
 

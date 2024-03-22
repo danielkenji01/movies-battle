@@ -1,5 +1,6 @@
 package com.moviesbattle.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -13,5 +14,7 @@ public interface MatchRepository extends JpaRepository<Match, Integer> {
     boolean existsByPlayerAndStatus(final Player player, final MatchStatus status);
 
     Optional<Match> findByPlayerAndStatus(final Player player, final MatchStatus status);
+
+    List<Match> findAllByStatus(final MatchStatus status);
 
 }

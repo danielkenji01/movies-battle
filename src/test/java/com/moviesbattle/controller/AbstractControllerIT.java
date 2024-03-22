@@ -38,8 +38,12 @@ public abstract class AbstractControllerIT {
         return httpHeaders -> httpHeaders.setBearerAuth(JwtUtil.generateToken(username));
     }
 
-    protected final WebTestClient.RequestBodySpec post(final String url) {
-        return request(HttpMethod.POST, url);
+    protected final WebTestClient.RequestBodySpec post(final String uri) {
+        return request(HttpMethod.POST, uri);
+    }
+
+    protected final WebTestClient.RequestHeadersSpec<?> get(final String uri) {
+        return request(HttpMethod.GET, uri);
     }
 
     protected WebTestClient.RequestBodySpec request(final HttpMethod method, final String uri) {

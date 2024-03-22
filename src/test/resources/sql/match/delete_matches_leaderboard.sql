@@ -1,0 +1,1 @@
+DELETE FROM match where id in (996, 997, 998, 999, 1000);

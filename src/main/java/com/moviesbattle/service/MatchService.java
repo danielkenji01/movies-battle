@@ -33,8 +33,8 @@ public class MatchService {
     }
 
     public List<MatchDto> getLeaderboard() {
-        return matchRepository.findAll().stream().sorted(Comparator.comparing(Match::getScore).reversed())
-                .map(matchMapper::map).toList();
+        return matchRepository.findAllByStatus(MatchStatus.FINISHED)
+                .stream().sorted(Comparator.comparing(Match::getScore).reversed()).map(matchMapper::map).toList();
     }
 
     public void startMatch() {

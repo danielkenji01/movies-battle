@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.function.Consumer;
 
 
+import static org.hamcrest.Matchers.containsInRelativeOrder;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.moviesbattle.model.Movie;
@@ -94,6 +96,32 @@ class MatchControllerIT extends AbstractControllerIT {
                 .expectBody()
                 .jsonPath("$")
                 .isEqualTo("Final score: 100.0");
+    }
+
+    @Sql(value = "classpath:sql/match/create_matches_leaderboard.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(value = "classpath:sql/match/delete_matches_leaderboard.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Test
+    void leaderboard_shouldReturnInCorrectOrder() {
+        get("/match/leaderboard")
+                .headers(setBearerAuth("daniel"))
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBody()
+                .jsonPath("$.*").isNotEmpty()
+                .jsonPath("$.length()").isEqualTo(3)
+                .jsonPath("$.[*].id", containsInRelativeOrder(999, 998, 1000));
+    }
+
+    @Test
+    void leaderboard_whenThereIsNotMatches_shouldReturnEmpty() {
+        get("/match/leaderboard")
+                .headers(setBearerAuth("daniel"))
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBody()
+                .jsonPath("$").isEmpty();
     }
 
 }

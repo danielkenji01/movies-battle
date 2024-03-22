@@ -1,5 +1,6 @@
 package com.moviesbattle.service;
 
+import java.util.List;
 import java.util.Random;
 
 
@@ -31,6 +32,10 @@ public class MovieService {
         movie.setTotalScore(movieDto.imdbRating() * movie.getVotes());
 
         movieRepository.save(movie);
+    }
+
+    public void createAll(final List<Movie> movies) {
+        movieRepository.saveAll(movies);
     }
 
     public Movie findByImdb(final String imdb) {

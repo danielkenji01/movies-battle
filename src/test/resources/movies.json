@@ -1,0 +1,2002 @@
+[
+  {
+    "id": 1,
+    "imdb": "tt0111161",
+    "title": "The Shawshank Redemption",
+    "rate": 9.3,
+    "votes": 2865799,
+    "totalScore": 2.6651930700000003E7
+  },
+  {
+    "id": 2,
+    "imdb": "tt0068646",
+    "title": "The Godfather",
+    "rate": 9.2,
+    "votes": 1997580,
+    "totalScore": 1.8377736E7
+  },
+  {
+    "id": 3,
+    "imdb": "tt0468569",
+    "title": "The Dark Knight",
+    "rate": 9.0,
+    "votes": 2835809,
+    "totalScore": 2.5522281E7
+  },
+  {
+    "id": 4,
+    "imdb": "tt0071562",
+    "title": "The Godfather Part II",
+    "rate": 9.0,
+    "votes": 1355260,
+    "totalScore": 1.219734E7
+  },
+  {
+    "id": 5,
+    "imdb": "tt0050083",
+    "title": "12 Angry Men",
+    "rate": 9.0,
+    "votes": 855894,
+    "totalScore": 7703046.0
+  },
+  {
+    "id": 6,
+    "imdb": "tt0108052",
+    "title": "Schindler's List",
+    "rate": 9.0,
+    "votes": 1434327,
+    "totalScore": 1.2908943E7
+  },
+  {
+    "id": 7,
+    "imdb": "tt0167260",
+    "title": "The Lord of the Rings: The Return of the King",
+    "rate": 9.0,
+    "votes": 1964472,
+    "totalScore": 1.7680248E7
+  },
+  {
+    "id": 8,
+    "imdb": "tt0110912",
+    "title": "Pulp Fiction",
+    "rate": 8.9,
+    "votes": 2202387,
+    "totalScore": 1.96012443E7
+  },
+  {
+    "id": 9,
+    "imdb": "tt0120737",
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "rate": 8.9,
+    "votes": 1995612,
+    "totalScore": 1.77609468E7
+  },
+  {
+    "id": 10,
+    "imdb": "tt0060196",
+    "title": "The Good, the Bad and the Ugly",
+    "rate": 8.8,
+    "votes": 807342,
+    "totalScore": 7104609.600000001
+  },
+  {
+    "id": 11,
+    "imdb": "tt0109830",
+    "title": "Forrest Gump",
+    "rate": 8.8,
+    "votes": 2228850,
+    "totalScore": 1.961388E7
+  },
+  {
+    "id": 12,
+    "imdb": "tt0167261",
+    "title": "The Lord of the Rings: The Two Towers",
+    "rate": 8.8,
+    "votes": 1773823,
+    "totalScore": 1.56096424E7
+  },
+  {
+    "id": 13,
+    "imdb": "tt0137523",
+    "title": "Fight Club",
+    "rate": 8.8,
+    "votes": 2300999,
+    "totalScore": 2.0248791200000003E7
+  },
+  {
+    "id": 14,
+    "imdb": "tt15239678",
+    "title": "Dune: Part Two",
+    "rate": 9.1,
+    "votes": 16829,
+    "totalScore": 153143.9
+  },
+  {
+    "id": 15,
+    "imdb": "tt1375666",
+    "title": "Inception",
+    "rate": 8.8,
+    "votes": 2530924,
+    "totalScore": 2.2272131200000003E7
+  },
+  {
+    "id": 16,
+    "imdb": "tt0080684",
+    "title": "Star Wars: Episode V - The Empire Strikes Back",
+    "rate": 8.7,
+    "votes": 1371107,
+    "totalScore": 1.1928630899999999E7
+  },
+  {
+    "id": 17,
+    "imdb": "tt0133093",
+    "title": "The Matrix",
+    "rate": 8.7,
+    "votes": 2034744,
+    "totalScore": 1.7702272799999997E7
+  },
+  {
+    "id": 18,
+    "imdb": "tt0099685",
+    "title": "Goodfellas",
+    "rate": 8.7,
+    "votes": 1242337,
+    "totalScore": 1.0808331899999999E7
+  },
+  {
+    "id": 19,
+    "imdb": "tt0073486",
+    "title": "One Flew Over the Cuckoo's Nest",
+    "rate": 8.7,
+    "votes": 1065707,
+    "totalScore": 9271650.899999999
+  },
+  {
+    "id": 20,
+    "imdb": "tt0114369",
+    "title": "Se7en",
+    "rate": 8.6,
+    "votes": 1787177,
+    "totalScore": 1.53697222E7
+  },
+  {
+    "id": 21,
+    "imdb": "tt0816692",
+    "title": "Interstellar",
+    "rate": 8.7,
+    "votes": 2071776,
+    "totalScore": 1.80244512E7
+  },
+  {
+    "id": 22,
+    "imdb": "tt0038650",
+    "title": "It's a Wonderful Life",
+    "rate": 8.6,
+    "votes": 497151,
+    "totalScore": 4275498.6
+  },
+  {
+    "id": 23,
+    "imdb": "tt0047478",
+    "title": "Seven Samurai",
+    "rate": 8.6,
+    "votes": 363557,
+    "totalScore": 3126590.1999999997
+  },
+  {
+    "id": 24,
+    "imdb": "tt0102926",
+    "title": "The Silence of the Lambs",
+    "rate": 8.6,
+    "votes": 1529827,
+    "totalScore": 1.31565122E7
+  },
+  {
+    "id": 25,
+    "imdb": "tt0120815",
+    "title": "Saving Private Ryan",
+    "rate": 8.6,
+    "votes": 1486615,
+    "totalScore": 1.2784889E7
+  },
+  {
+    "id": 26,
+    "imdb": "tt0317248",
+    "title": "City of God",
+    "rate": 8.6,
+    "votes": 794637,
+    "totalScore": 6833878.199999999
+  },
+  {
+    "id": 27,
+    "imdb": "tt0118799",
+    "title": "Life Is Beautiful",
+    "rate": 8.6,
+    "votes": 738259,
+    "totalScore": 6349027.399999999
+  },
+  {
+    "id": 28,
+    "imdb": "tt0120689",
+    "title": "The Green Mile",
+    "rate": 8.6,
+    "votes": 1398825,
+    "totalScore": 1.2029895E7
+  },
+  {
+    "id": 29,
+    "imdb": "tt0103064",
+    "title": "Terminator 2: Judgment Day",
+    "rate": 8.6,
+    "votes": 1166834,
+    "totalScore": 1.00347724E7
+  },
+  {
+    "id": 30,
+    "imdb": "tt0076759",
+    "title": "Star Wars: Episode IV - A New Hope",
+    "rate": 8.6,
+    "votes": 1442969,
+    "totalScore": 1.24095334E7
+  },
+  {
+    "id": 31,
+    "imdb": "tt0088763",
+    "title": "Back to the Future",
+    "rate": 8.5,
+    "votes": 1299618,
+    "totalScore": 1.1046753E7
+  },
+  {
+    "id": 32,
+    "imdb": "tt0245429",
+    "title": "Spirited Away",
+    "rate": 8.6,
+    "votes": 842416,
+    "totalScore": 7244777.6
+  },
+  {
+    "id": 33,
+    "imdb": "tt0253474",
+    "title": "The Pianist",
+    "rate": 8.5,
+    "votes": 903500,
+    "totalScore": 7679750.0
+  },
+  {
+    "id": 34,
+    "imdb": "tt6751668",
+    "title": "Parasite",
+    "rate": 8.5,
+    "votes": 932313,
+    "totalScore": 7924660.5
+  },
+  {
+    "id": 35,
+    "imdb": "tt9362722",
+    "title": "Spider-Man: Across the Spider-Verse",
+    "rate": 8.6,
+    "votes": 357214,
+    "totalScore": 3072040.4
+  },
+  {
+    "id": 36,
+    "imdb": "tt0054215",
+    "title": "Psycho",
+    "rate": 8.5,
+    "votes": 711694,
+    "totalScore": 6049399.0
+  },
+  {
+    "id": 37,
+    "imdb": "tt0172495",
+    "title": "Gladiator",
+    "rate": 8.5,
+    "votes": 1609914,
+    "totalScore": 1.3684269E7
+  },
+  {
+    "id": 38,
+    "imdb": "tt0110357",
+    "title": "The Lion King",
+    "rate": 8.5,
+    "votes": 1135709,
+    "totalScore": 9653526.5
+  },
+  {
+    "id": 39,
+    "imdb": "tt0110413",
+    "title": "Léon: The Professional",
+    "rate": 8.5,
+    "votes": 1238936,
+    "totalScore": 1.0530956E7
+  },
+  {
+    "id": 40,
+    "imdb": "tt0407887",
+    "title": "The Departed",
+    "rate": 8.5,
+    "votes": 1414739,
+    "totalScore": 1.20252815E7
+  },
+  {
+    "id": 41,
+    "imdb": "tt0120586",
+    "title": "American History X",
+    "rate": 8.5,
+    "votes": 1180283,
+    "totalScore": 1.00324055E7
+  },
+  {
+    "id": 42,
+    "imdb": "tt2582802",
+    "title": "Whiplash",
+    "rate": 8.5,
+    "votes": 970021,
+    "totalScore": 8245178.5
+  },
+  {
+    "id": 43,
+    "imdb": "tt0482571",
+    "title": "The Prestige",
+    "rate": 8.5,
+    "votes": 1428846,
+    "totalScore": 1.2145191E7
+  },
+  {
+    "id": 44,
+    "imdb": "tt0095327",
+    "title": "Grave of the Fireflies",
+    "rate": 8.5,
+    "votes": 307101,
+    "totalScore": 2610358.5
+  },
+  {
+    "id": 45,
+    "imdb": "tt0056058",
+    "title": "Harakiri",
+    "rate": 8.6,
+    "votes": 67509,
+    "totalScore": 580577.4
+  },
+  {
+    "id": 46,
+    "imdb": "tt0114814",
+    "title": "The Usual Suspects",
+    "rate": 8.5,
+    "votes": 1136304,
+    "totalScore": 9658584.0
+  },
+  {
+    "id": 47,
+    "imdb": "tt0034583",
+    "title": "Casablanca",
+    "rate": 8.5,
+    "votes": 603518,
+    "totalScore": 5129903.0
+  },
+  {
+    "id": 48,
+    "imdb": "tt1675434",
+    "title": "The Intouchables",
+    "rate": 8.5,
+    "votes": 923481,
+    "totalScore": 7849588.5
+  },
+  {
+    "id": 49,
+    "imdb": "tt0095765",
+    "title": "Cinema Paradiso",
+    "rate": 8.5,
+    "votes": 280854,
+    "totalScore": 2387259.0
+  },
+  {
+    "id": 50,
+    "imdb": "tt0027977",
+    "title": "Modern Times",
+    "rate": 8.5,
+    "votes": 257290,
+    "totalScore": 2186965.0
+  },
+  {
+    "id": 51,
+    "imdb": "tt0047396",
+    "title": "Rear Window",
+    "rate": 8.5,
+    "votes": 516997,
+    "totalScore": 4394474.5
+  },
+  {
+    "id": 52,
+    "imdb": "tt0064116",
+    "title": "Once Upon a Time in the West",
+    "rate": 8.5,
+    "votes": 347835,
+    "totalScore": 2956597.5
+  },
+  {
+    "id": 53,
+    "imdb": "tt0078748",
+    "title": "Alien",
+    "rate": 8.5,
+    "votes": 944526,
+    "totalScore": 8028471.0
+  },
+  {
+    "id": 54,
+    "imdb": "tt0021749",
+    "title": "City Lights",
+    "rate": 8.5,
+    "votes": 194973,
+    "totalScore": 1657270.5
+  },
+  {
+    "id": 55,
+    "imdb": "tt23849204",
+    "title": "12th Fail",
+    "rate": 9.1,
+    "votes": 96262,
+    "totalScore": 875984.2
+  },
+  {
+    "id": 56,
+    "imdb": "tt0078788",
+    "title": "Apocalypse Now",
+    "rate": 8.4,
+    "votes": 706460,
+    "totalScore": 5934264.0
+  },
+  {
+    "id": 57,
+    "imdb": "tt1853728",
+    "title": "Django Unchained",
+    "rate": 8.5,
+    "votes": 1684006,
+    "totalScore": 1.4314051E7
+  },
+  {
+    "id": 58,
+    "imdb": "tt0209144",
+    "title": "Memento",
+    "rate": 8.4,
+    "votes": 1316321,
+    "totalScore": 1.10570964E7
+  },
+  {
+    "id": 59,
+    "imdb": "tt0910970",
+    "title": "WALL·E",
+    "rate": 8.4,
+    "votes": 1194276,
+    "totalScore": 1.00319184E7
+  },
+  {
+    "id": 60,
+    "imdb": "tt0082971",
+    "title": "Raiders of the Lost Ark",
+    "rate": 8.4,
+    "votes": 1032957,
+    "totalScore": 8676838.8
+  },
+  {
+    "id": 61,
+    "imdb": "tt0405094",
+    "title": "The Lives of Others",
+    "rate": 8.4,
+    "votes": 407770,
+    "totalScore": 3425268.0
+  },
+  {
+    "id": 62,
+    "imdb": "tt0043014",
+    "title": "Sunset Blvd.",
+    "rate": 8.4,
+    "votes": 234943,
+    "totalScore": 1973521.2000000002
+  },
+  {
+    "id": 63,
+    "imdb": "tt0050825",
+    "title": "Paths of Glory",
+    "rate": 8.4,
+    "votes": 211208,
+    "totalScore": 1774147.2000000002
+  },
+  {
+    "id": 64,
+    "imdb": "tt4154756",
+    "title": "Avengers: Infinity War",
+    "rate": 8.4,
+    "votes": 1193889,
+    "totalScore": 1.00286676E7
+  },
+  {
+    "id": 65,
+    "imdb": "tt4633694",
+    "title": "Spider-Man: Into the Spider-Verse",
+    "rate": 8.4,
+    "votes": 659349,
+    "totalScore": 5538531.600000001
+  },
+  {
+    "id": 66,
+    "imdb": "tt0081505",
+    "title": "The Shining",
+    "rate": 8.4,
+    "votes": 1098031,
+    "totalScore": 9223460.4
+  },
+  {
+    "id": 67,
+    "imdb": "tt0051201",
+    "title": "Witness for the Prosecution",
+    "rate": 8.4,
+    "votes": 136870,
+    "totalScore": 1149708.0
+  },
+  {
+    "id": 68,
+    "imdb": "tt0032553",
+    "title": "The Great Dictator",
+    "rate": 8.4,
+    "votes": 236456,
+    "totalScore": 1986230.4000000001
+  },
+  {
+    "id": 69,
+    "imdb": "tt0090605",
+    "title": "Aliens",
+    "rate": 8.4,
+    "votes": 755647,
+    "totalScore": 6347434.8
+  },
+  {
+    "id": 70,
+    "imdb": "tt0361748",
+    "title": "Inglourious Basterds",
+    "rate": 8.4,
+    "votes": 1573429,
+    "totalScore": 1.3216803600000001E7
+  },
+  {
+    "id": 71,
+    "imdb": "tt1345836",
+    "title": "The Dark Knight Rises",
+    "rate": 8.4,
+    "votes": 1814851,
+    "totalScore": 1.52447484E7
+  },
+  {
+    "id": 72,
+    "imdb": "tt0057012",
+    "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+    "rate": 8.4,
+    "votes": 513884,
+    "totalScore": 4316625.600000001
+  },
+  {
+    "id": 73,
+    "imdb": "tt0169547",
+    "title": "American Beauty",
+    "rate": 8.3,
+    "votes": 1202201,
+    "totalScore": 9978268.3
+  },
+  {
+    "id": 74,
+    "imdb": "tt0364569",
+    "title": "Oldboy",
+    "rate": 8.3,
+    "votes": 630473,
+    "totalScore": 5232925.9
+  },
+  {
+    "id": 75,
+    "imdb": "tt2380307",
+    "title": "Coco",
+    "rate": 8.4,
+    "votes": 583443,
+    "totalScore": 4900921.2
+  },
+  {
+    "id": 76,
+    "imdb": "tt0086879",
+    "title": "Amadeus",
+    "rate": 8.4,
+    "votes": 424321,
+    "totalScore": 3564296.4000000004
+  },
+  {
+    "id": 77,
+    "imdb": "tt0114709",
+    "title": "Toy Story",
+    "rate": 8.3,
+    "votes": 1057356,
+    "totalScore": 8776054.8
+  },
+  {
+    "id": 78,
+    "imdb": "tt0082096",
+    "title": "The Boat",
+    "rate": 8.4,
+    "votes": 263316,
+    "totalScore": 2211854.4
+  },
+  {
+    "id": 79,
+    "imdb": "tt0112573",
+    "title": "Braveheart",
+    "rate": 8.3,
+    "votes": 1086400,
+    "totalScore": 9017120.0
+  },
+  {
+    "id": 80,
+    "imdb": "tt4154796",
+    "title": "Avengers: Endgame",
+    "rate": 8.4,
+    "votes": 1246637,
+    "totalScore": 1.04717508E7
+  },
+  {
+    "id": 81,
+    "imdb": "tt7286456",
+    "title": "Joker",
+    "rate": 8.4,
+    "votes": 1463264,
+    "totalScore": 1.22914176E7
+  },
+  {
+    "id": 82,
+    "imdb": "tt0119698",
+    "title": "Princess Mononoke",
+    "rate": 8.3,
+    "votes": 430648,
+    "totalScore": 3574378.4000000004
+  },
+  {
+    "id": 83,
+    "imdb": "tt0119217",
+    "title": "Good Will Hunting",
+    "rate": 8.3,
+    "votes": 1057474,
+    "totalScore": 8777034.200000001
+  },
+  {
+    "id": 84,
+    "imdb": "tt5311514",
+    "title": "Your Name.",
+    "rate": 8.4,
+    "votes": 314839,
+    "totalScore": 2644647.6
+  },
+  {
+    "id": 85,
+    "imdb": "tt0087843",
+    "title": "Once Upon a Time in America",
+    "rate": 8.3,
+    "votes": 375767,
+    "totalScore": 3118866.1
+  },
+  {
+    "id": 86,
+    "imdb": "tt0057565",
+    "title": "High and Low",
+    "rate": 8.4,
+    "votes": 52550,
+    "totalScore": 441420.0
+  },
+  {
+    "id": 87,
+    "imdb": "tt1187043",
+    "title": "3 Idiots",
+    "rate": 8.4,
+    "votes": 429262,
+    "totalScore": 3605800.8000000003
+  },
+  {
+    "id": 88,
+    "imdb": "tt15398776",
+    "title": "Oppenheimer",
+    "rate": 8.4,
+    "votes": 665737,
+    "totalScore": 5592190.8
+  },
+  {
+    "id": 89,
+    "imdb": "tt0045152",
+    "title": "Singin' in the Rain",
+    "rate": 8.3,
+    "votes": 259384,
+    "totalScore": 2152887.2
+  },
+  {
+    "id": 90,
+    "imdb": "tt8267604",
+    "title": "Capernaum",
+    "rate": 8.4,
+    "votes": 104095,
+    "totalScore": 874398.0
+  },
+  {
+    "id": 91,
+    "imdb": "tt0180093",
+    "title": "Requiem for a Dream",
+    "rate": 8.3,
+    "votes": 890236,
+    "totalScore": 7388958.800000001
+  },
+  {
+    "id": 92,
+    "imdb": "tt0091251",
+    "title": "Come and See",
+    "rate": 8.4,
+    "votes": 94372,
+    "totalScore": 792724.8
+  },
+  {
+    "id": 93,
+    "imdb": "tt0435761",
+    "title": "Toy Story 3",
+    "rate": 8.3,
+    "votes": 887596,
+    "totalScore": 7367046.800000001
+  },
+  {
+    "id": 94,
+    "imdb": "tt0086190",
+    "title": "Star Wars: Episode VI - Return of the Jedi",
+    "rate": 8.3,
+    "votes": 1116149,
+    "totalScore": 9264036.700000001
+  },
+  {
+    "id": 95,
+    "imdb": "tt0338013",
+    "title": "Eternal Sunshine of the Spotless Mind",
+    "rate": 8.3,
+    "votes": 1069858,
+    "totalScore": 8879821.4
+  },
+  {
+    "id": 96,
+    "imdb": "tt2106476",
+    "title": "The Hunt",
+    "rate": 8.3,
+    "votes": 361875,
+    "totalScore": 3003562.5000000005
+  },
+  {
+    "id": 97,
+    "imdb": "tt0062622",
+    "title": "2001: A Space Odyssey",
+    "rate": 8.3,
+    "votes": 711595,
+    "totalScore": 5906238.500000001
+  },
+  {
+    "id": 98,
+    "imdb": "tt0105236",
+    "title": "Reservoir Dogs",
+    "rate": 8.3,
+    "votes": 1083130,
+    "totalScore": 8989979.0
+  },
+  {
+    "id": 99,
+    "imdb": "tt0044741",
+    "title": "Ikiru",
+    "rate": 8.3,
+    "votes": 86294,
+    "totalScore": 716240.2000000001
+  },
+  {
+    "id": 100,
+    "imdb": "tt0056172",
+    "title": "Lawrence of Arabia",
+    "rate": 8.3,
+    "votes": 312246,
+    "totalScore": 2591641.8000000003
+  },
+  {
+    "id": 101,
+    "imdb": "tt0053604",
+    "title": "The Apartment",
+    "rate": 8.3,
+    "votes": 195651,
+    "totalScore": 1623903.3
+  },
+  {
+    "id": 102,
+    "imdb": "tt0053125",
+    "title": "North by Northwest",
+    "rate": 8.3,
+    "votes": 343784,
+    "totalScore": 2853407.2
+  },
+  {
+    "id": 103,
+    "imdb": "tt0033467",
+    "title": "Citizen Kane",
+    "rate": 8.3,
+    "votes": 464150,
+    "totalScore": 3852445.0000000005
+  },
+  {
+    "id": 104,
+    "imdb": "tt0052357",
+    "title": "Vertigo",
+    "rate": 8.3,
+    "votes": 424475,
+    "totalScore": 3523142.5000000005
+  },
+  {
+    "id": 105,
+    "imdb": "tt0022100",
+    "title": "M",
+    "rate": 8.3,
+    "votes": 166556,
+    "totalScore": 1382414.8
+  },
+  {
+    "id": 106,
+    "imdb": "tt1255953",
+    "title": "Incendies",
+    "rate": 8.3,
+    "votes": 196032,
+    "totalScore": 1627065.6
+  },
+  {
+    "id": 107,
+    "imdb": "tt0036775",
+    "title": "Double Indemnity",
+    "rate": 8.3,
+    "votes": 166696,
+    "totalScore": 1383576.8
+  },
+  {
+    "id": 108,
+    "imdb": "tt0086250",
+    "title": "Scarface",
+    "rate": 8.3,
+    "votes": 909692,
+    "totalScore": 7550443.600000001
+  },
+  {
+    "id": 109,
+    "imdb": "tt0211915",
+    "title": "Amélie",
+    "rate": 8.3,
+    "votes": 791723,
+    "totalScore": 6571300.9
+  },
+  {
+    "id": 110,
+    "imdb": "tt0093058",
+    "title": "Full Metal Jacket",
+    "rate": 8.3,
+    "votes": 786886,
+    "totalScore": 6531153.800000001
+  },
+  {
+    "id": 111,
+    "imdb": "tt0066921",
+    "title": "A Clockwork Orange",
+    "rate": 8.3,
+    "votes": 876789,
+    "totalScore": 7277348.7
+  },
+  {
+    "id": 112,
+    "imdb": "tt0113277",
+    "title": "Heat",
+    "rate": 8.3,
+    "votes": 715349,
+    "totalScore": 5937396.7
+  },
+  {
+    "id": 113,
+    "imdb": "tt1049413",
+    "title": "Up",
+    "rate": 8.3,
+    "votes": 1115316,
+    "totalScore": 9257122.8
+  },
+  {
+    "id": 114,
+    "imdb": "tt0056592",
+    "title": "To Kill a Mockingbird",
+    "rate": 8.3,
+    "votes": 330159,
+    "totalScore": 2740319.7
+  },
+  {
+    "id": 115,
+    "imdb": "tt0070735",
+    "title": "The Sting",
+    "rate": 8.3,
+    "votes": 278282,
+    "totalScore": 2309740.6
+  },
+  {
+    "id": 116,
+    "imdb": "tt1832382",
+    "title": "A Separation",
+    "rate": 8.3,
+    "votes": 257533,
+    "totalScore": 2137523.9000000004
+  },
+  {
+    "id": 117,
+    "imdb": "tt0097576",
+    "title": "Indiana Jones and the Last Crusade",
+    "rate": 8.2,
+    "votes": 807806,
+    "totalScore": 6624009.199999999
+  },
+  {
+    "id": 118,
+    "imdb": "tt0095016",
+    "title": "Die Hard",
+    "rate": 8.2,
+    "votes": 941100,
+    "totalScore": 7717019.999999999
+  },
+  {
+    "id": 119,
+    "imdb": "tt0017136",
+    "title": "Metropolis",
+    "rate": 8.3,
+    "votes": 183670,
+    "totalScore": 1524461.0000000002
+  },
+  {
+    "id": 120,
+    "imdb": "tt0986264",
+    "title": "Like Stars on Earth",
+    "rate": 8.3,
+    "votes": 204993,
+    "totalScore": 1701441.9000000001
+  },
+  {
+    "id": 121,
+    "imdb": "tt8503618",
+    "title": "Hamilton",
+    "rate": 8.3,
+    "votes": 111078,
+    "totalScore": 921947.4
+  },
+  {
+    "id": 122,
+    "imdb": "tt0208092",
+    "title": "Snatch",
+    "rate": 8.2,
+    "votes": 905585,
+    "totalScore": 7425796.999999999
+  },
+  {
+    "id": 123,
+    "imdb": "tt0119488",
+    "title": "L.A. Confidential",
+    "rate": 8.2,
+    "votes": 613159,
+    "totalScore": 5027903.8
+  },
+  {
+    "id": 124,
+    "imdb": "tt0040522",
+    "title": "Bicycle Thieves",
+    "rate": 8.3,
+    "votes": 173755,
+    "totalScore": 1442166.5000000002
+  },
+  {
+    "id": 125,
+    "imdb": "tt8579674",
+    "title": "1917",
+    "rate": 8.2,
+    "votes": 669206,
+    "totalScore": 5487489.199999999
+  },
+  {
+    "id": 126,
+    "imdb": "tt0075314",
+    "title": "Taxi Driver",
+    "rate": 8.2,
+    "votes": 913441,
+    "totalScore": 7490216.199999999
+  },
+  {
+    "id": 127,
+    "imdb": "tt0363163",
+    "title": "Downfall",
+    "rate": 8.2,
+    "votes": 372477,
+    "totalScore": 3054311.4
+  },
+  {
+    "id": 128,
+    "imdb": "tt5074352",
+    "title": "Dangal",
+    "rate": 8.3,
+    "votes": 208146,
+    "totalScore": 1727611.8
+  },
+  {
+    "id": 129,
+    "imdb": "tt0059578",
+    "title": "For a Few Dollars More",
+    "rate": 8.2,
+    "votes": 272945,
+    "totalScore": 2238149.0
+  },
+  {
+    "id": 130,
+    "imdb": "tt0372784",
+    "title": "Batman Begins",
+    "rate": 8.2,
+    "votes": 1566957,
+    "totalScore": 1.2849047399999999E7
+  },
+  {
+    "id": 131,
+    "imdb": "tt0993846",
+    "title": "The Wolf of Wall Street",
+    "rate": 8.2,
+    "votes": 1570239,
+    "totalScore": 1.2875959799999999E7
+  },
+  {
+    "id": 132,
+    "imdb": "tt0053291",
+    "title": "Some Like It Hot",
+    "rate": 8.2,
+    "votes": 281336,
+    "totalScore": 2306955.1999999997
+  },
+  {
+    "id": 133,
+    "imdb": "tt0012349",
+    "title": "The Kid",
+    "rate": 8.2,
+    "votes": 134163,
+    "totalScore": 1100136.5999999999
+  },
+  {
+    "id": 134,
+    "imdb": "tt6966692",
+    "title": "Green Book",
+    "rate": 8.2,
+    "votes": 563411,
+    "totalScore": 4619970.199999999
+  },
+  {
+    "id": 135,
+    "imdb": "tt10272386",
+    "title": "The Father",
+    "rate": 8.2,
+    "votes": 187594,
+    "totalScore": 1538270.7999999998
+  },
+  {
+    "id": 136,
+    "imdb": "tt0055031",
+    "title": "Judgment at Nuremberg",
+    "rate": 8.3,
+    "votes": 84778,
+    "totalScore": 703657.4
+  },
+  {
+    "id": 137,
+    "imdb": "tt1745960",
+    "title": "Top Gun: Maverick",
+    "rate": 8.3,
+    "votes": 672058,
+    "totalScore": 5578081.4
+  },
+  {
+    "id": 138,
+    "imdb": "tt0042192",
+    "title": "All About Eve",
+    "rate": 8.2,
+    "votes": 137984,
+    "totalScore": 1131468.7999999998
+  },
+  {
+    "id": 139,
+    "imdb": "tt0120382",
+    "title": "The Truman Show",
+    "rate": 8.2,
+    "votes": 1178891,
+    "totalScore": 9666906.2
+  },
+  {
+    "id": 140,
+    "imdb": "tt0469494",
+    "title": "There Will Be Blood",
+    "rate": 8.2,
+    "votes": 635381,
+    "totalScore": 5210124.199999999
+  },
+  {
+    "id": 141,
+    "imdb": "tt1130884",
+    "title": "Shutter Island",
+    "rate": 8.2,
+    "votes": 1441330,
+    "totalScore": 1.1818905999999998E7
+  },
+  {
+    "id": 142,
+    "imdb": "tt0112641",
+    "title": "Casino",
+    "rate": 8.2,
+    "votes": 560760,
+    "totalScore": 4598232.0
+  },
+  {
+    "id": 143,
+    "imdb": "tt0089881",
+    "title": "Ran",
+    "rate": 8.2,
+    "votes": 134571,
+    "totalScore": 1103482.2
+  },
+  {
+    "id": 144,
+    "imdb": "tt0107290",
+    "title": "Jurassic Park",
+    "rate": 8.2,
+    "votes": 1060897,
+    "totalScore": 8699355.399999999
+  },
+  {
+    "id": 145,
+    "imdb": "tt0167404",
+    "title": "The Sixth Sense",
+    "rate": 8.2,
+    "votes": 1041928,
+    "totalScore": 8543809.6
+  },
+  {
+    "id": 146,
+    "imdb": "tt0457430",
+    "title": "Pan's Labyrinth",
+    "rate": 8.2,
+    "votes": 699649,
+    "totalScore": 5737121.8
+  },
+  {
+    "id": 147,
+    "imdb": "tt0105695",
+    "title": "Unforgiven",
+    "rate": 8.2,
+    "votes": 433953,
+    "totalScore": 3558414.5999999996
+  },
+  {
+    "id": 148,
+    "imdb": "tt0268978",
+    "title": "A Beautiful Mind",
+    "rate": 8.2,
+    "votes": 980326,
+    "totalScore": 8038673.199999999
+  },
+  {
+    "id": 149,
+    "imdb": "tt0477348",
+    "title": "No Country for Old Men",
+    "rate": 8.2,
+    "votes": 1051288,
+    "totalScore": 8620561.6
+  },
+  {
+    "id": 150,
+    "imdb": "tt0084787",
+    "title": "The Thing",
+    "rate": 8.2,
+    "votes": 461608,
+    "totalScore": 3785185.5999999996
+  },
+  {
+    "id": 151,
+    "imdb": "tt0040897",
+    "title": "The Treasure of the Sierra Madre",
+    "rate": 8.2,
+    "votes": 131458,
+    "totalScore": 1077955.5999999999
+  },
+  {
+    "id": 152,
+    "imdb": "tt0266697",
+    "title": "Kill Bill: Vol. 1",
+    "rate": 8.2,
+    "votes": 1182518,
+    "totalScore": 9696647.6
+  },
+  {
+    "id": 153,
+    "imdb": "tt0055630",
+    "title": "Yojimbo",
+    "rate": 8.2,
+    "votes": 130004,
+    "totalScore": 1066032.7999999998
+  },
+  {
+    "id": 154,
+    "imdb": "tt0071853",
+    "title": "Monty Python and the Holy Grail",
+    "rate": 8.2,
+    "votes": 568129,
+    "totalScore": 4658657.8
+  },
+  {
+    "id": 155,
+    "imdb": "tt0057115",
+    "title": "The Great Escape",
+    "rate": 8.2,
+    "votes": 257772,
+    "totalScore": 2113730.4
+  },
+  {
+    "id": 156,
+    "imdb": "tt0266543",
+    "title": "Finding Nemo",
+    "rate": 8.2,
+    "votes": 1106481,
+    "totalScore": 9073144.2
+  },
+  {
+    "id": 157,
+    "imdb": "tt0042876",
+    "title": "Rashomon",
+    "rate": 8.2,
+    "votes": 179027,
+    "totalScore": 1468021.4
+  },
+  {
+    "id": 158,
+    "imdb": "tt1392214",
+    "title": "Prisoners",
+    "rate": 8.1,
+    "votes": 795177,
+    "totalScore": 6440933.699999999
+  },
+  {
+    "id": 159,
+    "imdb": "tt0347149",
+    "title": "Howl's Moving Castle",
+    "rate": 8.2,
+    "votes": 444832,
+    "totalScore": 3647622.4
+  },
+  {
+    "id": 160,
+    "imdb": "tt0080678",
+    "title": "The Elephant Man",
+    "rate": 8.2,
+    "votes": 256441,
+    "totalScore": 2102816.1999999997
+  },
+  {
+    "id": 161,
+    "imdb": "tt0071315",
+    "title": "Chinatown",
+    "rate": 8.1,
+    "votes": 348060,
+    "totalScore": 2819286.0
+  },
+  {
+    "id": 162,
+    "imdb": "tt0046912",
+    "title": "Dial M for Murder",
+    "rate": 8.2,
+    "votes": 187104,
+    "totalScore": 1534252.7999999998
+  },
+  {
+    "id": 163,
+    "imdb": "tt0031381",
+    "title": "Gone with the Wind",
+    "rate": 8.2,
+    "votes": 331490,
+    "totalScore": 2718217.9999999995
+  },
+  {
+    "id": 164,
+    "imdb": "tt0434409",
+    "title": "V for Vendetta",
+    "rate": 8.2,
+    "votes": 1173585,
+    "totalScore": 9623397.0
+  },
+  {
+    "id": 165,
+    "imdb": "tt0120735",
+    "title": "Lock, Stock and Two Smoking Barrels",
+    "rate": 8.1,
+    "votes": 611388,
+    "totalScore": 4952242.8
+  },
+  {
+    "id": 166,
+    "imdb": "tt1305806",
+    "title": "The Secret in Their Eyes",
+    "rate": 8.2,
+    "votes": 221065,
+    "totalScore": 1812732.9999999998
+  },
+  {
+    "id": 167,
+    "imdb": "tt0081398",
+    "title": "Raging Bull",
+    "rate": 8.1,
+    "votes": 377720,
+    "totalScore": 3059532.0
+  },
+  {
+    "id": 168,
+    "imdb": "tt2096673",
+    "title": "Inside Out",
+    "rate": 8.1,
+    "votes": 779869,
+    "totalScore": 6316938.899999999
+  },
+  {
+    "id": 169,
+    "imdb": "tt5027774",
+    "title": "Three Billboards Outside Ebbing, Missouri",
+    "rate": 8.1,
+    "votes": 550151,
+    "totalScore": 4456223.1
+  },
+  {
+    "id": 170,
+    "imdb": "tt0117951",
+    "title": "Trainspotting",
+    "rate": 8.1,
+    "votes": 720219,
+    "totalScore": 5833773.899999999
+  },
+  {
+    "id": 171,
+    "imdb": "tt0050212",
+    "title": "The Bridge on the River Kwai",
+    "rate": 8.1,
+    "votes": 232163,
+    "totalScore": 1880520.2999999998
+  },
+  {
+    "id": 172,
+    "imdb": "tt10872600",
+    "title": "Spider-Man: No Way Home",
+    "rate": 8.2,
+    "votes": 870223,
+    "totalScore": 7135828.6
+  },
+  {
+    "id": 173,
+    "imdb": "tt0116282",
+    "title": "Fargo",
+    "rate": 8.1,
+    "votes": 718480,
+    "totalScore": 5819688.0
+  },
+  {
+    "id": 174,
+    "imdb": "tt4729430",
+    "title": "Klaus",
+    "rate": 8.2,
+    "votes": 187635,
+    "totalScore": 1538606.9999999998
+  },
+  {
+    "id": 175,
+    "imdb": "tt1291584",
+    "title": "Warrior",
+    "rate": 8.1,
+    "votes": 494388,
+    "totalScore": 4004542.8
+  },
+  {
+    "id": 176,
+    "imdb": "tt0264464",
+    "title": "Catch Me If You Can",
+    "rate": 8.1,
+    "votes": 1081226,
+    "totalScore": 8757930.6
+  },
+  {
+    "id": 177,
+    "imdb": "tt23289160",
+    "title": "Godzilla Minus One",
+    "rate": 8.3,
+    "votes": 45095,
+    "totalScore": 374288.50000000006
+  },
+  {
+    "id": 178,
+    "imdb": "tt1205489",
+    "title": "Gran Torino",
+    "rate": 8.1,
+    "votes": 812129,
+    "totalScore": 6578244.899999999
+  },
+  {
+    "id": 179,
+    "imdb": "tt0096283",
+    "title": "My Neighbor Totoro",
+    "rate": 8.1,
+    "votes": 377104,
+    "totalScore": 3054542.4
+  },
+  {
+    "id": 180,
+    "imdb": "tt0405159",
+    "title": "Million Dollar Baby",
+    "rate": 8.1,
+    "votes": 718281,
+    "totalScore": 5818076.1
+  },
+  {
+    "id": 181,
+    "imdb": "tt1201607",
+    "title": "Harry Potter and the Deathly Hallows: Part 2",
+    "rate": 8.1,
+    "votes": 941773,
+    "totalScore": 7628361.3
+  },
+  {
+    "id": 182,
+    "imdb": "tt0118849",
+    "title": "Children of Heaven",
+    "rate": 8.2,
+    "votes": 79867,
+    "totalScore": 654909.3999999999
+  },
+  {
+    "id": 183,
+    "imdb": "tt2024544",
+    "title": "12 Years a Slave",
+    "rate": 8.1,
+    "votes": 738643,
+    "totalScore": 5983008.3
+  },
+  {
+    "id": 184,
+    "imdb": "tt0083658",
+    "title": "Blade Runner",
+    "rate": 8.1,
+    "votes": 817983,
+    "totalScore": 6625662.3
+  },
+  {
+    "id": 185,
+    "imdb": "tt0112471",
+    "title": "Before Sunrise",
+    "rate": 8.1,
+    "votes": 335257,
+    "totalScore": 2715581.6999999997
+  },
+  {
+    "id": 186,
+    "imdb": "tt2278388",
+    "title": "The Grand Budapest Hotel",
+    "rate": 8.1,
+    "votes": 878311,
+    "totalScore": 7114319.1
+  },
+  {
+    "id": 187,
+    "imdb": "tt0052618",
+    "title": "Ben-Hur",
+    "rate": 8.1,
+    "votes": 251446,
+    "totalScore": 2036712.5999999999
+  },
+  {
+    "id": 188,
+    "imdb": "tt0072684",
+    "title": "Barry Lyndon",
+    "rate": 8.1,
+    "votes": 181354,
+    "totalScore": 1468967.4
+  },
+  {
+    "id": 189,
+    "imdb": "tt2267998",
+    "title": "Gone Girl",
+    "rate": 8.1,
+    "votes": 1054600,
+    "totalScore": 8542260.0
+  },
+  {
+    "id": 190,
+    "imdb": "tt2119532",
+    "title": "Hacksaw Ridge",
+    "rate": 8.1,
+    "votes": 585918,
+    "totalScore": 4745935.8
+  },
+  {
+    "id": 191,
+    "imdb": "tt0015864",
+    "title": "The Gold Rush",
+    "rate": 8.1,
+    "votes": 118135,
+    "totalScore": 956893.5
+  },
+  {
+    "id": 192,
+    "imdb": "tt0107207",
+    "title": "In the Name of the Father",
+    "rate": 8.1,
+    "votes": 185546,
+    "totalScore": 1502922.5999999999
+  },
+  {
+    "id": 193,
+    "imdb": "tt0353969",
+    "title": "Memories of Murder",
+    "rate": 8.1,
+    "votes": 211657,
+    "totalScore": 1714421.7
+  },
+  {
+    "id": 194,
+    "imdb": "tt0097165",
+    "title": "Dead Poets Society",
+    "rate": 8.1,
+    "votes": 541597,
+    "totalScore": 4386935.7
+  },
+  {
+    "id": 195,
+    "imdb": "tt0047296",
+    "title": "On the Waterfront",
+    "rate": 8.1,
+    "votes": 163646,
+    "totalScore": 1325532.5999999999
+  },
+  {
+    "id": 196,
+    "imdb": "tt0017925",
+    "title": "The General",
+    "rate": 8.1,
+    "votes": 97467,
+    "totalScore": 789482.7
+  },
+  {
+    "id": 197,
+    "imdb": "tt0077416",
+    "title": "The Deer Hunter",
+    "rate": 8.1,
+    "votes": 358927,
+    "totalScore": 2907308.6999999997
+  },
+  {
+    "id": 198,
+    "imdb": "tt3011894",
+    "title": "Wild Tales",
+    "rate": 8.1,
+    "votes": 215088,
+    "totalScore": 1742212.7999999998
+  },
+  {
+    "id": 199,
+    "imdb": "tt1392190",
+    "title": "Mad Max: Fury Road",
+    "rate": 8.1,
+    "votes": 1078789,
+    "totalScore": 8738190.9
+  },
+  {
+    "id": 200,
+    "imdb": "tt0198781",
+    "title": "Monsters, Inc.",
+    "rate": 8.1,
+    "votes": 971816,
+    "totalScore": 7871709.6
+  },
+  {
+    "id": 201,
+    "imdb": "tt0015324",
+    "title": "Sherlock Jr.",
+    "rate": 8.2,
+    "votes": 56235,
+    "totalScore": 461126.99999999994
+  },
+  {
+    "id": 202,
+    "imdb": "tt0041959",
+    "title": "The Third Man",
+    "rate": 8.1,
+    "votes": 180660,
+    "totalScore": 1463346.0
+  },
+  {
+    "id": 203,
+    "imdb": "tt0050986",
+    "title": "Wild Strawberries",
+    "rate": 8.1,
+    "votes": 114151,
+    "totalScore": 924623.1
+  },
+  {
+    "id": 204,
+    "imdb": "tt0046268",
+    "title": "The Wages of Fear",
+    "rate": 8.2,
+    "votes": 65566,
+    "totalScore": 537641.2
+  },
+  {
+    "id": 205,
+    "imdb": "tt0073195",
+    "title": "Jaws",
+    "rate": 8.1,
+    "votes": 656025,
+    "totalScore": 5313802.5
+  },
+  {
+    "id": 206,
+    "imdb": "tt0892769",
+    "title": "How to Train Your Dragon",
+    "rate": 8.1,
+    "votes": 791280,
+    "totalScore": 6409368.0
+  },
+  {
+    "id": 207,
+    "imdb": "tt0978762",
+    "title": "Mary and Max",
+    "rate": 8.1,
+    "votes": 185780,
+    "totalScore": 1504818.0
+  },
+  {
+    "id": 208,
+    "imdb": "tt0031679",
+    "title": "Mr. Smith Goes to Washington",
+    "rate": 8.1,
+    "votes": 120995,
+    "totalScore": 980059.5
+  },
+  {
+    "id": 209,
+    "imdb": "tt1950186",
+    "title": "Ford v Ferrari",
+    "rate": 8.1,
+    "votes": 456136,
+    "totalScore": 3694701.5999999996
+  },
+  {
+    "id": 210,
+    "imdb": "tt0382932",
+    "title": "Ratatouille",
+    "rate": 8.1,
+    "votes": 818179,
+    "totalScore": 6627249.899999999
+  },
+  {
+    "id": 211,
+    "imdb": "tt0046438",
+    "title": "Tokyo Story",
+    "rate": 8.1,
+    "votes": 67651,
+    "totalScore": 547973.1
+  },
+  {
+    "id": 212,
+    "imdb": "tt0050976",
+    "title": "The Seventh Seal",
+    "rate": 8.1,
+    "votes": 196557,
+    "totalScore": 1592111.7
+  },
+  {
+    "id": 213,
+    "imdb": "tt3170832",
+    "title": "Room",
+    "rate": 8.1,
+    "votes": 447713,
+    "totalScore": 3626475.3
+  },
+  {
+    "id": 214,
+    "imdb": "tt0118715",
+    "title": "The Big Lebowski",
+    "rate": 8.1,
+    "votes": 855780,
+    "totalScore": 6931818.0
+  },
+  {
+    "id": 215,
+    "imdb": "tt0075148",
+    "title": "Rocky",
+    "rate": 8.1,
+    "votes": 625237,
+    "totalScore": 5064419.7
+  },
+  {
+    "id": 216,
+    "imdb": "tt3315342",
+    "title": "Logan",
+    "rate": 8.1,
+    "votes": 825834,
+    "totalScore": 6689255.399999999
+  },
+  {
+    "id": 217,
+    "imdb": "tt1895587",
+    "title": "Spotlight",
+    "rate": 8.1,
+    "votes": 499420,
+    "totalScore": 4045302.0
+  },
+  {
+    "id": 218,
+    "imdb": "tt0395169",
+    "title": "Hotel Rwanda",
+    "rate": 8.1,
+    "votes": 369825,
+    "totalScore": 2995582.5
+  },
+  {
+    "id": 219,
+    "imdb": "tt0091763",
+    "title": "Platoon",
+    "rate": 8.1,
+    "votes": 437556,
+    "totalScore": 3544203.5999999996
+  },
+  {
+    "id": 220,
+    "imdb": "tt0088247",
+    "title": "The Terminator",
+    "rate": 8.1,
+    "votes": 915854,
+    "totalScore": 7418417.399999999
+  },
+  {
+    "id": 221,
+    "imdb": "tt0019254",
+    "title": "The Passion of Joan of Arc",
+    "rate": 8.1,
+    "votes": 60242,
+    "totalScore": 487960.19999999995
+  },
+  {
+    "id": 222,
+    "imdb": "tt0381681",
+    "title": "Before Sunset",
+    "rate": 8.1,
+    "votes": 284687,
+    "totalScore": 2305964.6999999997
+  },
+  {
+    "id": 223,
+    "imdb": "tt0113247",
+    "title": "La haine",
+    "rate": 8.1,
+    "votes": 194740,
+    "totalScore": 1577394.0
+  },
+  {
+    "id": 224,
+    "imdb": "tt0036868",
+    "title": "The Best Years of Our Lives",
+    "rate": 8.1,
+    "votes": 70160,
+    "totalScore": 568296.0
+  },
+  {
+    "id": 225,
+    "imdb": "tt15097216",
+    "title": "Jai Bhim",
+    "rate": 8.7,
+    "votes": 215114,
+    "totalScore": 1871491.7999999998
+  },
+  {
+    "id": 226,
+    "imdb": "tt0070047",
+    "title": "The Exorcist",
+    "rate": 8.1,
+    "votes": 451481,
+    "totalScore": 3656996.0999999996
+  },
+  {
+    "id": 227,
+    "imdb": "tt0325980",
+    "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+    "rate": 8.1,
+    "votes": 1199036,
+    "totalScore": 9712191.6
+  },
+  {
+    "id": 228,
+    "imdb": "tt1979320",
+    "title": "Rush",
+    "rate": 8.1,
+    "votes": 508716,
+    "totalScore": 4120599.5999999996
+  },
+  {
+    "id": 229,
+    "imdb": "tt0074958",
+    "title": "Network",
+    "rate": 8.1,
+    "votes": 169380,
+    "totalScore": 1371978.0
+  },
+  {
+    "id": 230,
+    "imdb": "tt0092005",
+    "title": "Stand by Me",
+    "rate": 8.1,
+    "votes": 439040,
+    "totalScore": 3556224.0
+  },
+  {
+    "id": 231,
+    "imdb": "tt0032138",
+    "title": "The Wizard of Oz",
+    "rate": 8.1,
+    "votes": 426175,
+    "totalScore": 3452017.5
+  },
+  {
+    "id": 232,
+    "imdb": "tt0317705",
+    "title": "The Incredibles",
+    "rate": 8.0,
+    "votes": 803770,
+    "totalScore": 6430160.0
+  },
+  {
+    "id": 233,
+    "imdb": "tt1028532",
+    "title": "Hachi: A Dog's Tale",
+    "rate": 8.1,
+    "votes": 309579,
+    "totalScore": 2507589.9
+  },
+  {
+    "id": 234,
+    "imdb": "tt0476735",
+    "title": "My Father and My Son",
+    "rate": 8.2,
+    "votes": 92055,
+    "totalScore": 754850.9999999999
+  },
+  {
+    "id": 235,
+    "imdb": "tt0758758",
+    "title": "Into the Wild",
+    "rate": 8.1,
+    "votes": 654751,
+    "totalScore": 5303483.1
+  },
+  {
+    "id": 236,
+    "imdb": "tt4016934",
+    "title": "The Handmaiden",
+    "rate": 8.1,
+    "votes": 169699,
+    "totalScore": 1374561.9
+  },
+  {
+    "id": 237,
+    "imdb": "tt0059742",
+    "title": "The Sound of Music",
+    "rate": 8.1,
+    "votes": 257771,
+    "totalScore": 2087945.0999999999
+  },
+  {
+    "id": 238,
+    "imdb": "tt0035446",
+    "title": "To Be or Not to Be",
+    "rate": 8.1,
+    "votes": 42598,
+    "totalScore": 345043.8
+  },
+  {
+    "id": 239,
+    "imdb": "tt0032551",
+    "title": "The Grapes of Wrath",
+    "rate": 8.1,
+    "votes": 99187,
+    "totalScore": 803414.7
+  },
+  {
+    "id": 240,
+    "imdb": "tt0058946",
+    "title": "The Battle of Algiers",
+    "rate": 8.1,
+    "votes": 64998,
+    "totalScore": 526483.7999999999
+  },
+  {
+    "id": 241,
+    "imdb": "tt0107048",
+    "title": "Groundhog Day",
+    "rate": 8.0,
+    "votes": 678228,
+    "totalScore": 5425824.0
+  },
+  {
+    "id": 242,
+    "imdb": "tt0245712",
+    "title": "Amores Perros",
+    "rate": 8.1,
+    "votes": 252074,
+    "totalScore": 2041799.4
+  },
+  {
+    "id": 243,
+    "imdb": "tt0032976",
+    "title": "Rebecca",
+    "rate": 8.1,
+    "votes": 145284,
+    "totalScore": 1176800.4
+  },
+  {
+    "id": 244,
+    "imdb": "tt0061512",
+    "title": "Cool Hand Luke",
+    "rate": 8.1,
+    "votes": 187461,
+    "totalScore": 1518434.0999999999
+  },
+  {
+    "id": 245,
+    "imdb": "tt0129167",
+    "title": "The Iron Giant",
+    "rate": 8.1,
+    "votes": 224612,
+    "totalScore": 1819357.2
+  },
+  {
+    "id": 246,
+    "imdb": "tt1454029",
+    "title": "The Help",
+    "rate": 8.1,
+    "votes": 488134,
+    "totalScore": 3953885.4
+  },
+  {
+    "id": 247,
+    "imdb": "tt0025316",
+    "title": "It Happened One Night",
+    "rate": 8.1,
+    "votes": 111529,
+    "totalScore": 903384.8999999999
+  },
+  {
+    "id": 248,
+    "imdb": "tt0099348",
+    "title": "Dances with Wolves",
+    "rate": 8.0,
+    "votes": 287910,
+    "totalScore": 2303280.0
+  },
+  {
+    "id": 249,
+    "imdb": "tt4430212",
+    "title": "Drishyam",
+    "rate": 8.2,
+    "votes": 93114,
+    "totalScore": 763534.7999999999
+  },
+  {
+    "id": 250,
+    "imdb": "tt0103639",
+    "title": "Aladdin",
+    "rate": 8.0,
+    "votes": 463286,
+    "totalScore": 3706288.0
+  }
+]

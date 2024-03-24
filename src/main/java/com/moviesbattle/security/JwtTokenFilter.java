@@ -3,6 +3,7 @@ package com.moviesbattle.security;
 import java.io.IOException;
 
 
+import com.moviesbattle.exception.UnauthorizedException;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -26,7 +27,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                         new UsernamePasswordAuthenticationToken(username, null, null);
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
-        } catch (ExpiredJwtException exception) {
+        } catch (final Exception exception) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return;
         }

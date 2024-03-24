@@ -7,6 +7,7 @@ import java.util.Date;
 import com.moviesbattle.exception.UnauthorizedException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -27,13 +28,17 @@ public class JwtUtil {
     }
 
     public static String getUsernameFromToken(final String token) {
-        final Claims claims = Jwts.parser()
-                .setSigningKey(Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8)))
-                .build()
-                .parseClaimsJws(token)
-                .getPayload();
+        try {
+            final Claims claims = Jwts.parser()
+                    .setSigningKey(Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8)))
+                    .build()
+                    .parseClaimsJws(token)
+                    .getPayload();
 
-        return claims.getSubject();
+            return claims.getSubject();
+        } catch (final MalformedJwtException exception) {
+            throw new UnauthorizedException();
+        }
     }
 
     public static String getLoggedUser() {

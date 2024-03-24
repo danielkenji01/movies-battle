@@ -24,6 +24,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers(antMatcher(HttpMethod.POST, "/api/players/login")).permitAll()
                                 .requestMatchers(antMatcher(HttpMethod.POST, "/api/players")).permitAll()
+                                .requestMatchers(antMatcher("/swagger-ui/**")).permitAll()
+                                .requestMatchers(antMatcher("/v3/api-docs/**")).permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(new JwtTokenFilter(), UsernamePasswordAuthenticationFilter.class)
                 .build();

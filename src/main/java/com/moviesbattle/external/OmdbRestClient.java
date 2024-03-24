@@ -5,7 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(url = "${omdb.client.url}", name = "omdbRestClient") // TODO pass to properties and create configuration
+@FeignClient(url = "${omdb.client.url}", name = "omdbRestClient")
 public interface OmdbRestClient {
 
     @GetMapping

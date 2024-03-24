@@ -49,7 +49,7 @@ class MovieServiceTest {
         movieService.create("tt12345");
 
         verify(movieRepository, times(1)).save(any(Movie.class));
-    } //TODO create test to fail rest client
+    }
 
     @Test
     void findByImdb_isSuccess() {

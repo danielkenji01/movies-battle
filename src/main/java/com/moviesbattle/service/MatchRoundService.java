@@ -100,7 +100,7 @@ public class MatchRoundService {
         try {
             matchRoundRepository.save(matchRound);
             matchService.saveMatch(match);
-        } catch (final Exception e) {
+        } catch (final Exception exception) {
             throw new RuntimeException("Error saving match information"); // TODO refactor
         }
     }

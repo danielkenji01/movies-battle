@@ -42,12 +42,7 @@ public class MatchService {
 
         this.validateExistingMatch(player);
 
-        final Match match = new Match();
-
-        match.setStatus(MatchStatus.IN_PROGRESS);
-        match.setCredits(3);
-        match.setPlayer(player);
-        match.setCorrectAnswers(0);
+        final Match match = Match.createMatch(player);
 
         this.saveMatch(match);
     }

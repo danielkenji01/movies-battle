@@ -64,4 +64,15 @@ public class Match {
         this.status = MatchStatus.FINISHED;
     }
 
+    public static Match createMatch(final Player player) {
+        final Match match = new Match();
+
+        match.setStatus(MatchStatus.IN_PROGRESS);
+        match.setCredits(3);
+        match.setPlayer(player);
+        match.setCorrectAnswers(0);
+
+        return match;
+    }
+
 }
